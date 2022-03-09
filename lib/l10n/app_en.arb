@@ -1,0 +1,42 @@
+{
+  "profilePageTitle": "Profile page",
+  "@profilePageTitle": {
+    "description": "a title for profile page"
+  },
+  "receiptLabel": "Receipt",
+  "@receiptLabel": {
+    "description": "a title for receipt label"
+  },
+  "catalogPageTitle": "Catalog page",
+  "@catalogPageTitle": {
+    "description": "a title for catalog page"
+  },
+  "generalErrorMessage": "Error. Something went wrong",
+  "@generalErrorMessage": {
+    "description": "general error message"
+  },
+  "homePageTitle": "Home page",
+  "@homePageTitle": {
+    "description": "a title for home page"
+  },
+  "productPageTitle": "Product page",
+  "@productPageTitle": {
+    "description": "a title for product page"
+  },
+  "specialOffersTitle": "Special offers",
+  "@specialOffersTitle": {
+    "description": "a title for special offers"
+  },
+  "noResultsMessage": "There are no results",
+  "@noResultsMessage": {
+    "description": "a message for empty result"
+  },
+  "reloadPageMessage": "Reload Page",
+  "@reloadPageMessage": {
+    "description": "a message for reload action"
+  },
+  "discountCardPlaceholder": "Here will be your discount card",
+  "@discountCardPlaceholder": {
+    "description": "a message for reload action"
+  }
+}
