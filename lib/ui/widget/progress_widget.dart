@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy/ui/style/app_colors.dart';
 
 class ProgressWidget extends StatefulWidget {
   const ProgressWidget({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _ProgressWidgetState extends State<ProgressWidget> {
             height: 80,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
-              color: Colors.white,
+              color: AppColors.grayscaleWhiteColor,
             ),
             child: const Center(child: CircularProgressIndicator()),
           ),

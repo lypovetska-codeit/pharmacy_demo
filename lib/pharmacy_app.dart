@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pharmacy/ui/navigation/main_nav_bloc.dart';
 import 'package:pharmacy/ui/navigation/main_nav_parser.dart';
 import 'package:pharmacy/ui/navigation/main_nav_router_delegate.dart';
+import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:vicodin/vicodin.dart';
 
 class PharmacyApp extends StatefulWidget {
@@ -41,6 +42,12 @@ class _PharmacyAppState extends State<PharmacyApp> {
       supportedLocales: AppLocalizations.supportedLocales,
       routeInformationParser: SimpleParser(),
       routerDelegate: _delegate,
+      theme: ThemeData(
+        fontFamily: "Manrope",
+        dividerColor: Colors.transparent,
+        primaryColor: AppColors.colorPrimary,
+        primarySwatch: AppColors.colorPrimaryDark,
+      ),
     );
   }
 }

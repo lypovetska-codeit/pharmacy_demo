@@ -36,8 +36,8 @@ class ProductWidget extends StatelessWidget {
           left: 8,
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Colors.black12, width: 0.5),
+          color: AppColors.grayscaleWhiteColor,
+          border: Border.all(color: AppColors.grayscaleDividerColor, width: 0.5),
           borderRadius: borderRadius,
         ),
         child: Column(
@@ -78,7 +78,11 @@ class ProductWidget extends StatelessWidget {
                   children: [
                     Text(
                       "\$ ${item.price - item.discount}",
-                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.black),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.textPrimaryColor,
+                      ),
                     ),
                     Visibility(
                       visible: item.discount > 0,
@@ -109,7 +113,7 @@ class ProductWidget extends StatelessWidget {
                       padding: const EdgeInsets.all(12),
                       child: const Icon(
                         Icons.add_shopping_cart,
-                        color: Colors.white,
+                        color: AppColors.grayscaleWhiteColor,
                       ),
                     ),
                   ),

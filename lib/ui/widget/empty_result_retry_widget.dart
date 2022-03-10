@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/widget/empty_result_widget.dart';
 
 class EmptyResultRetry extends StatelessWidget {
@@ -20,7 +21,7 @@ class EmptyResultRetry extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w800,
-              color: error == null ? Colors.black : Colors.red,
+              color: error == null ? AppColors.textPrimaryColor : AppColors.colorError,
             ),
           ),
         ),
@@ -31,7 +32,7 @@ class EmptyResultRetry extends StatelessWidget {
           child: Text(
             AppLocalizations.of(context)!.reloadPageMessage,
             style: const TextStyle(
-              color: Colors.black45,
+              color: AppColors.textSecondaryColor,
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),

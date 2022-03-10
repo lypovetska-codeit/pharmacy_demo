@@ -5,6 +5,7 @@ class AppColors {
 
   static const colorPrimary = Colors.orange;
   static const colorPrimaryDark = Colors.deepOrange;
+  static const colorError = Colors.red;
   static const greenPrimaryColor = Color(0xff00A950);
   static const greenPrimaryOpacity20Color = Color(0x3300a950);
   static const greenSecondaryColor = Color(0xff32b670);
