@@ -38,5 +38,21 @@
   "discountCardPlaceholder": "Here will be your discount card",
   "@discountCardPlaceholder": {
     "description": "a message for reload action"
+  },
+  "joinUs": "Join us",
+  "@joinUs": {
+    "description": "a message for join action"
+  },
+  "joinUsRationale": "Join us to be able to use all our promos",
+  "@joinUsRationale": {
+    "description": "a message for join action rationale"
+  },
+  "en": "English",
+  "@en": {
+    "description": "eng lang title"
+  },
+  "uk": "Ukrainian",
+  "@uk": {
+    "description": "Ukrainian lang title"
   }
 }

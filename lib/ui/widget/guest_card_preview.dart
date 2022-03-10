@@ -24,9 +24,9 @@ class GuestCardPreview extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 12),
-                  const Text(
-                    "Join us to be able to use all our promos",
-                    style: TextStyle(fontSize: 18, color: AppColors.colorPrimary),
+                  Text(
+                    AppLocalizations.of(context)!.joinUsRationale,
+                    style: const TextStyle(fontSize: 18, color: AppColors.colorPrimary),
                   ),
                   const SizedBox(height: 12),
                   GestureDetector(
@@ -41,9 +41,10 @@ class GuestCardPreview extends StatelessWidget {
                           ..moveTo(0, size.height)
                           ..lineTo(size.width, size.height);
                       },
-                      child: const Text(
-                        "Join us",
-                        style: TextStyle(fontSize: 18, color: AppColors.colorPrimary, fontWeight: FontWeight.w800),
+                      child: Text(
+                        AppLocalizations.of(context)!.joinUs,
+                        style:
+                            const TextStyle(fontSize: 18, color: AppColors.colorPrimary, fontWeight: FontWeight.w800),
                       ),
                     ),
                   )

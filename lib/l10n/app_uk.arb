@@ -1,0 +1,16 @@
+{
+  "profilePageTitle": "Профіль",
+  "receiptLabel": "Рецепт",
+  "catalogPageTitle": "Каталог",
+  "generalErrorMessage": "Помилка. Щось пішло не так",
+  "homePageTitle": "Головна",
+  "productPageTitle": "Продукт",
+  "SpecialOffersTitle": "Спеціальні пропозиції",
+  "noResultsMessage": "Результатів немає",
+  "reloadPageMessage": "Перезавантажити",
+  "discountCardPlaceholder": "Тут відображатиметься ваша карта",
+  "joinUs": "Приєднатися",
+  "joinUsRationale": "Приєднуйтесь, щоб мати можливість отримувати кращі пропозиції",
+  "en": "Англійська",
+  "uk": "Український"
+}

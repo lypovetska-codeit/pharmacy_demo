@@ -103,4 +103,10 @@ class _PaginatedProductListState extends State<PaginatedProductList> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _pagingController.dispose();
+    super.dispose();
+  }
 }
