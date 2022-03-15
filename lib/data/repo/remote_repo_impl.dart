@@ -1,6 +1,5 @@
 import 'package:pharmacy/domain/model/banner_offer.dart';
 import 'package:pharmacy/domain/model/category_id.dart';
-import 'package:pharmacy/domain/model/list_id.dart';
 import 'package:pharmacy/domain/model/page.dart';
 import 'package:pharmacy/domain/model/paged_products.dart';
 import 'package:pharmacy/domain/model/product.dart';
@@ -18,8 +17,8 @@ class RemoteRepoImpl extends RemoteRepo {
           id: index,
           imageUrl:
               "https://img.freepik.com/free-photo/top-view-of-redwhite-capsule-pills-on-yellow-background-pharmacy-banner-pharmaceutical-industry_33867-2062.jpg",
-          listId: ListId(index),
           position: index,
+          title: "Special price",
         ),
       ).toList();
     });
@@ -32,7 +31,7 @@ class RemoteRepoImpl extends RemoteRepo {
         40,
         (index) => Tag(
           id: index,
-          imageUrl: "https://flyclipart.com/thumb2/heart-health-icon-854472.png",
+          imageUrl: "https://",
           title: 'tag $index',
           categoryId: CategoryId(index),
         ),
@@ -62,5 +61,19 @@ class RemoteRepoImpl extends RemoteRepo {
         );
       }
     });
+  }
+
+  @override
+  Future<List<Product>> searchProducts(String query) async {
+    return [
+      Product(
+        id: ProductId(1),
+        name: "Pills",
+        price: 100.0,
+        discount: 0,
+        images: [],
+        requireReceipt: false,
+      )
+    ];
   }
 }

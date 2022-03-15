@@ -35,7 +35,7 @@
   "@reloadPageMessage": {
     "description": "a message for reload action"
   },
-  "discountCardPlaceholder": "Here will be your discount card",
+  "discountCardPlaceholder": "You can add your card here",
   "@discountCardPlaceholder": {
     "description": "a message for reload action"
   },

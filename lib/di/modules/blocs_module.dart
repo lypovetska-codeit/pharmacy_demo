@@ -4,6 +4,8 @@ import 'package:pharmacy/ui/page/catalog/catalog_bloc.dart';
 import 'package:pharmacy/ui/page/home/home_bloc.dart';
 import 'package:pharmacy/ui/page/special_offers/special_offers_bloc.dart';
 import 'package:pharmacy/ui/page/tags/tags_bloc.dart';
+import 'package:pharmacy/ui/user/user_bloc.dart';
+import 'package:pharmacy/ui/widget/search/search_bloc.dart';
 import 'package:vicodin/vicodin.dart';
 
 Module blocsModule() => moduleOf(
@@ -26,6 +28,12 @@ Module blocsModule() => moduleOf(
         );
         r.factory<LocaleBloc>(
           (r) => LocaleBloc(r.resolve()),
+        );
+        r.factory<SearchBloc>(
+          (r) => SearchBloc(r.resolve()),
+        );
+        r.factory<UserBloc>(
+          (r) => UserBloc(r.resolve()),
         );
       },
     );

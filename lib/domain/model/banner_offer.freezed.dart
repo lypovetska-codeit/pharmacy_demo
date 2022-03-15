@@ -20,13 +20,13 @@ class _$BannerOfferTearOff {
   _BannerOffer call(
       {required int id,
       required String imageUrl,
-      required ListId listId,
-      required int position}) {
+      required int position,
+      required String title}) {
     return _BannerOffer(
       id: id,
       imageUrl: imageUrl,
-      listId: listId,
       position: position,
+      title: title,
     );
   }
 }
@@ -38,8 +38,8 @@ const $BannerOffer = _$BannerOfferTearOff();
 mixin _$BannerOffer {
   int get id => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
-  ListId get listId => throw _privateConstructorUsedError;
   int get position => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BannerOfferCopyWith<BannerOffer> get copyWith =>
@@ -51,9 +51,7 @@ abstract class $BannerOfferCopyWith<$Res> {
   factory $BannerOfferCopyWith(
           BannerOffer value, $Res Function(BannerOffer) then) =
       _$BannerOfferCopyWithImpl<$Res>;
-  $Res call({int id, String imageUrl, ListId listId, int position});
-
-  $ListIdCopyWith<$Res> get listId;
+  $Res call({int id, String imageUrl, int position, String title});
 }
 
 /// @nodoc
@@ -68,8 +66,8 @@ class _$BannerOfferCopyWithImpl<$Res> implements $BannerOfferCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? imageUrl = freezed,
-    Object? listId = freezed,
     Object? position = freezed,
+    Object? title = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -80,22 +78,15 @@ class _$BannerOfferCopyWithImpl<$Res> implements $BannerOfferCopyWith<$Res> {
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      listId: listId == freezed
-          ? _value.listId
-          : listId // ignore: cast_nullable_to_non_nullable
-              as ListId,
       position: position == freezed
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  $ListIdCopyWith<$Res> get listId {
-    return $ListIdCopyWith<$Res>(_value.listId, (value) {
-      return _then(_value.copyWith(listId: value));
-    });
   }
 }
 
@@ -106,10 +97,7 @@ abstract class _$BannerOfferCopyWith<$Res>
           _BannerOffer value, $Res Function(_BannerOffer) then) =
       __$BannerOfferCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String imageUrl, ListId listId, int position});
-
-  @override
-  $ListIdCopyWith<$Res> get listId;
+  $Res call({int id, String imageUrl, int position, String title});
 }
 
 /// @nodoc
@@ -126,8 +114,8 @@ class __$BannerOfferCopyWithImpl<$Res> extends _$BannerOfferCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? imageUrl = freezed,
-    Object? listId = freezed,
     Object? position = freezed,
+    Object? title = freezed,
   }) {
     return _then(_BannerOffer(
       id: id == freezed
@@ -138,14 +126,14 @@ class __$BannerOfferCopyWithImpl<$Res> extends _$BannerOfferCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      listId: listId == freezed
-          ? _value.listId
-          : listId // ignore: cast_nullable_to_non_nullable
-              as ListId,
       position: position == freezed
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as int,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -156,21 +144,21 @@ class _$_BannerOffer implements _BannerOffer {
   _$_BannerOffer(
       {required this.id,
       required this.imageUrl,
-      required this.listId,
-      required this.position});
+      required this.position,
+      required this.title});
 
   @override
   final int id;
   @override
   final String imageUrl;
   @override
-  final ListId listId;
-  @override
   final int position;
+  @override
+  final String title;
 
   @override
   String toString() {
-    return 'BannerOffer(id: $id, imageUrl: $imageUrl, listId: $listId, position: $position)';
+    return 'BannerOffer(id: $id, imageUrl: $imageUrl, position: $position, title: $title)';
   }
 
   @override
@@ -180,8 +168,8 @@ class _$_BannerOffer implements _BannerOffer {
             other is _BannerOffer &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
-            const DeepCollectionEquality().equals(other.listId, listId) &&
-            const DeepCollectionEquality().equals(other.position, position));
+            const DeepCollectionEquality().equals(other.position, position) &&
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @override
@@ -189,8 +177,8 @@ class _$_BannerOffer implements _BannerOffer {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(imageUrl),
-      const DeepCollectionEquality().hash(listId),
-      const DeepCollectionEquality().hash(position));
+      const DeepCollectionEquality().hash(position),
+      const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -202,17 +190,17 @@ abstract class _BannerOffer implements BannerOffer {
   factory _BannerOffer(
       {required int id,
       required String imageUrl,
-      required ListId listId,
-      required int position}) = _$_BannerOffer;
+      required int position,
+      required String title}) = _$_BannerOffer;
 
   @override
   int get id;
   @override
   String get imageUrl;
   @override
-  ListId get listId;
-  @override
   int get position;
+  @override
+  String get title;
   @override
   @JsonKey(ignore: true)
   _$BannerOfferCopyWith<_BannerOffer> get copyWith =>

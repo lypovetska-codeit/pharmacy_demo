@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/domain/model/product_widget.dart';
 import 'package:pharmacy/ui/navigation/main_nav_bloc.dart';
@@ -74,13 +74,13 @@ class _PaginatedProductListState extends State<PaginatedProductList> {
               onRetry: () {
                 _pagingController.retryLastFailedRequest();
               },
-              error: AppLocalizations.of(context)!.generalErrorMessage,
+              error: context.l10n.generalErrorMessage,
             ),
             newPageErrorIndicatorBuilder: (_) => EmptyResultRetry(
               onRetry: () {
                 _pagingController.retryLastFailedRequest();
               },
-              error: AppLocalizations.of(context)!.generalErrorMessage,
+              error: context.l10n.generalErrorMessage,
             ),
             itemBuilder: (context, item, index) => ProductWidget(
               item: item,

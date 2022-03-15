@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_bloc.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_event.dart';
@@ -55,7 +55,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
       elevation: 0,
       backgroundColor: AppColors.colorPrimary,
       title: Text(
-        AppLocalizations.of(context)!.catalogPageTitle,
+        context.l10n.catalogPageTitle,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,

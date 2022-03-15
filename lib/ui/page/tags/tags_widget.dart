@@ -67,11 +67,9 @@ class TagsWidget extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       child: Material(
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(6),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(6)),
         ),
-        color: AppColors.colorPrimaryDark,
+        color: AppColors.colorAccentLight,
         child: InkWell(
           onTap: () {
             onTap(tag.categoryId);
@@ -85,7 +83,7 @@ class TagsWidget extends StatelessWidget {
                   width: 16,
                   height: 16,
                   errorBuilder: (context, error, stackTrace) => SvgPicture.asset(
-                    "assets/icons/search_empty.svg",
+                    "assets/icons/ic_covid_icon.svg",
                     width: 16,
                     height: 16,
                   ),
@@ -93,7 +91,7 @@ class TagsWidget extends StatelessWidget {
                 const SizedBox(width: 9),
                 Text(
                   tag.title.toUpperCase(),
-                  style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.w800),
+                  style: const TextStyle(color: AppColors.colorAccent, fontSize: 10, fontWeight: FontWeight.w800),
                 )
               ],
             ),

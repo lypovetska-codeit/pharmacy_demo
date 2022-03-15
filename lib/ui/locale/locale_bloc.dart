@@ -3,9 +3,11 @@ import 'package:pharmacy/domain/model/app_locale.dart';
 import 'package:pharmacy/domain/repo/user_repo.dart';
 import 'package:pharmacy/ui/locale/locale_event.dart';
 import 'package:pharmacy/ui/locale/locale_state.dart';
+import 'package:rxdart/rxdart.dart';
 
 class LocaleBloc extends Bloc<LocaleEvent, LocaleState> {
   final UserRepo _userRepo;
+  final _subscription = CompositeSubscription();
 
   LocaleBloc(this._userRepo) : super(LocaleState(AppLocale.en, null)) {
     on<LocaleEvent>(
@@ -14,9 +16,11 @@ class LocaleBloc extends Bloc<LocaleEvent, LocaleState> {
         onLocaleChanged: (event) async => _onLocaleChanged(event, emit),
       ),
     );
-    _userRepo.subscribeToLocale().forEach((element) {
-      add(LocaleEvent.onLocaleChanged(element));
-    });
+    _subscription.add(
+      _userRepo.subscribeToLocale().listen((element) {
+        add(LocaleEvent.onLocaleChanged(element));
+      }),
+    );
   }
 
   Future<void> _onLocaleChanged(OnLocaleChanged event, Emitter<LocaleState> emit) async {
@@ -24,7 +28,6 @@ class LocaleBloc extends Bloc<LocaleEvent, LocaleState> {
   }
 
   Future<void> _changeLocale(ChangeLocale event, Emitter<LocaleState> emit) async {
-    print("### _changeLocale ${event.locale}");
     emit(state.copyWith(error: null));
     try {
       if (event.locale != state.locale) {
@@ -33,5 +36,11 @@ class LocaleBloc extends Bloc<LocaleEvent, LocaleState> {
     } catch (e) {
       emit(state.copyWith(error: e));
     }
+  }
+
+  @override
+  Future<void> close() {
+    _subscription.dispose();
+    return super.close();
   }
 }

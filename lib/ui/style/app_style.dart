@@ -11,7 +11,7 @@ class AppStyle {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8.0),
     ),
-    side: const BorderSide(color: AppColors.greenSecondaryColor),
+    side: const BorderSide(color: AppColors.colorPrimary),
   );
   static ButtonStyle sizedOutlineButtonGreyStyle = OutlinedButton.styleFrom(
     maximumSize: const Size(36, 36),
@@ -37,7 +37,7 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return AppColors.grayscaleDividerColor;
       }
-      return AppColors.greenSecondaryColor;
+      return AppColors.colorPrimary;
     }),
     minimumSize: MaterialStateProperty.resolveWith<Size>((states) => const Size(36, 36)),
     maximumSize: MaterialStateProperty.resolveWith<Size>((states) => const Size(36, 36)),
@@ -48,15 +48,15 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return const BorderSide(color: AppColors.grayscaleDividerColor);
       }
-      return const BorderSide(color: AppColors.greenSecondaryColor);
+      return const BorderSide(color: AppColors.colorPrimary);
     }),
-    // side: const BorderSide(color: AppColors.greenSecondaryColor),
+    // side: const BorderSide(color: AppColors.colorPrimary),
   );
 
   static ButtonStyle outlineButtonPrimaryStyle = OutlinedButton.styleFrom(
-    backgroundColor: AppColors.greenSecondaryColor,
+    backgroundColor: AppColors.colorPrimary,
     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-    side: const BorderSide(width: 2, color: AppColors.greenSecondaryColor),
+    side: const BorderSide(width: 2, color: AppColors.colorPrimary),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(14),
@@ -79,7 +79,7 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return AppColors.grayscaleDividerColor;
       }
-      return AppColors.greenPrimaryColor; // Defer to the widget's default.
+      return AppColors.colorPrimary; // Defer to the widget's default.
     }),
     shape: MaterialStateProperty.resolveWith(
       (states) => const RoundedRectangleBorder(
@@ -95,7 +95,7 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return const BorderSide(color: AppColors.grayscaleDividerColor);
       }
-      return const BorderSide(color: AppColors.greenPrimaryColor);
+      return const BorderSide(color: AppColors.colorPrimary);
     }),
   );
 
@@ -104,7 +104,7 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return AppColors.grayscaleDividerColor;
       }
-      return AppColors.greenLightColor; // Defer to the widget's default.
+      return AppColors.colorPrimary; // Defer to the widget's default.
     }),
     shape: MaterialStateProperty.resolveWith(
       (states) => const RoundedRectangleBorder(
@@ -120,7 +120,7 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return const BorderSide(color: AppColors.grayscaleDividerColor);
       }
-      return const BorderSide(color: AppColors.greenLightColor);
+      return const BorderSide(color: AppColors.colorPrimary);
     }),
   );
   static ButtonStyle outlineButtonDestructiveLightStyleSmall = ButtonStyle(

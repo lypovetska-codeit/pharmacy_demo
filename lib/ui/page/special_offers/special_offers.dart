@@ -3,11 +3,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:pharmacy/domain/model/list_id.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pharmacy/build_context_extensions.dart';
+import 'package:pharmacy/domain/model/banner_offer.dart';
 import 'package:pharmacy/ui/page/special_offers/special_offers_bloc.dart';
 import 'package:pharmacy/ui/page/special_offers/special_offers_state.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/widget/banner_label.dart';
 import 'package:pharmacy/ui/widget/header_widget.dart';
 import 'package:vicodin/vicodin.dart';
 
@@ -17,7 +19,7 @@ class SpecialOffers extends StatelessWidget {
     required this.onTap,
     required this.appComponent,
   }) : super(key: key);
-  final ValueChanged<ListId> onTap;
+  final ValueChanged<BannerOffer> onTap;
   final Component appComponent;
 
   @override
@@ -28,7 +30,7 @@ class SpecialOffers extends StatelessWidget {
         builder: (context, state) => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeaderWidget(title: AppLocalizations.of(context)!.specialOffersTitle),
+            HeaderWidget(title: context.l10n.specialOffersTitle),
             state.map(
               loaded: (state) => state.items.isNotEmpty
                   ? CarouselSlider(
@@ -55,10 +57,10 @@ class SpecialOffers extends StatelessWidget {
                         Radius.circular(14),
                       ),
                       child: Container(
-                        color: AppColors.colorPrimary,
+                        color: AppColors.grayscaleWhiteOpaqueColor,
                         child: Center(
                           child: Text(
-                            AppLocalizations.of(context)!.generalErrorMessage,
+                            context.l10n.generalErrorMessage,
                             style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w800,
@@ -81,24 +83,54 @@ class SpecialOffers extends StatelessWidget {
   List<Widget> _buildItems(Loaded state) {
     return state.items
         .map(
-          (e) => ClipRRect(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(14),
+          (e) => Container(
+            padding: const EdgeInsets.all(8),
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(14),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x0a1d2482),
+                  offset: Offset(0, 2),
+                  blurRadius: 4,
+                )
+              ],
             ),
-            child: Container(
-              height: 150,
-              width: 275,
-              color: AppColors.colorPrimary,
-              child: GestureDetector(
-                onTap: () => onTap(e.listId),
-                child: FadeInImage.assetNetwork(
-                  imageErrorBuilder: (context, error, stackTrace) => ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(14)),
-                    child: Image.asset("assets/images/ic_offer_placeholder.jpeg"),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(14),
+              ),
+              child: Container(
+                height: 150,
+                width: 275,
+                decoration: const BoxDecoration(
+                  color: AppColors.grayscaleWhiteColor,
+                ),
+                child: GestureDetector(
+                  onTap: () => onTap(e),
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: Image.network(
+                          e.imageUrl,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => ClipRRect(
+                            borderRadius: const BorderRadius.all(Radius.circular(14)),
+                            child: SvgPicture.asset(
+                              "assets/images/offer_placeholder.svg",
+                              color: AppColors.grayscaleDividerColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 16,
+                        bottom: 16,
+                        child: BannerLabel(title: e.title),
+                      ),
+                    ],
                   ),
-                  fit: BoxFit.cover,
-                  placeholder: "assets/images/ic_offer_placeholder.jpeg",
-                  image: e.imageUrl,
                 ),
               ),
             ),

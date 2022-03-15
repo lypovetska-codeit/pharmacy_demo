@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/widget/product_labels_widget.dart';
@@ -53,8 +54,8 @@ class ProductWidget extends StatelessWidget {
               child: Image.network(
                 item.images.isNotEmpty == true ? item.images.first : "",
                 height: 150,
-                errorBuilder: (context, error, stackTrace) => Image.asset(
-                  "assets/images/drug_placeholder.png",
+                errorBuilder: (context, error, stackTrace) => SvgPicture.asset(
+                  "assets/images/drug_placeholder.svg",
                   width: 150,
                 ),
               ),

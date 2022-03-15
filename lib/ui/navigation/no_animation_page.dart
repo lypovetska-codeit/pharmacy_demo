@@ -11,7 +11,6 @@ class NoAnimationPage extends Page<dynamic> {
   @override
   Route<dynamic> createRoute(BuildContext context) => PageRouteBuilder<dynamic>(
         settings: this,
-        pageBuilder: (_, __, ___) =>
-            child, // don't wrap in an animation to create a page without animation.
+        pageBuilder: (_, __, ___) => child, // don't wrap in an animation to create a page without animation.
       );
 }

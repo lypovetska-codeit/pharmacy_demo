@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 
 enum AppLocale {
   en,
@@ -23,11 +23,11 @@ extension AppLocaleExtension on AppLocale {
   String asTitle(BuildContext context) {
     switch (this) {
       case AppLocale.en:
-        return AppLocalizations.of(context)!.en;
+        return context.l10n.en;
       case AppLocale.uk:
-        return AppLocalizations.of(context)!.uk;
+        return context.l10n.uk;
       default:
-        return AppLocalizations.of(context)!.en;
+        return context.l10n.en;
     }
   }
 

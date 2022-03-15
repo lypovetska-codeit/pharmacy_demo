@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'list_id.dart';
+part of 'user_id.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,41 +14,41 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ListIdTearOff {
-  const _$ListIdTearOff();
+class _$UserIdTearOff {
+  const _$UserIdTearOff();
 
-  _ListId call(int value) {
-    return _ListId(
+  _UserId call(int value) {
+    return _UserId(
       value,
     );
   }
 }
 
 /// @nodoc
-const $ListId = _$ListIdTearOff();
+const $UserId = _$UserIdTearOff();
 
 /// @nodoc
-mixin _$ListId {
+mixin _$UserId {
   int get value => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ListIdCopyWith<ListId> get copyWith => throw _privateConstructorUsedError;
+  $UserIdCopyWith<UserId> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ListIdCopyWith<$Res> {
-  factory $ListIdCopyWith(ListId value, $Res Function(ListId) then) =
-      _$ListIdCopyWithImpl<$Res>;
+abstract class $UserIdCopyWith<$Res> {
+  factory $UserIdCopyWith(UserId value, $Res Function(UserId) then) =
+      _$UserIdCopyWithImpl<$Res>;
   $Res call({int value});
 }
 
 /// @nodoc
-class _$ListIdCopyWithImpl<$Res> implements $ListIdCopyWith<$Res> {
-  _$ListIdCopyWithImpl(this._value, this._then);
+class _$UserIdCopyWithImpl<$Res> implements $UserIdCopyWith<$Res> {
+  _$UserIdCopyWithImpl(this._value, this._then);
 
-  final ListId _value;
+  final UserId _value;
   // ignore: unused_field
-  final $Res Function(ListId) _then;
+  final $Res Function(UserId) _then;
 
   @override
   $Res call({
@@ -64,27 +64,27 @@ class _$ListIdCopyWithImpl<$Res> implements $ListIdCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ListIdCopyWith<$Res> implements $ListIdCopyWith<$Res> {
-  factory _$ListIdCopyWith(_ListId value, $Res Function(_ListId) then) =
-      __$ListIdCopyWithImpl<$Res>;
+abstract class _$UserIdCopyWith<$Res> implements $UserIdCopyWith<$Res> {
+  factory _$UserIdCopyWith(_UserId value, $Res Function(_UserId) then) =
+      __$UserIdCopyWithImpl<$Res>;
   @override
   $Res call({int value});
 }
 
 /// @nodoc
-class __$ListIdCopyWithImpl<$Res> extends _$ListIdCopyWithImpl<$Res>
-    implements _$ListIdCopyWith<$Res> {
-  __$ListIdCopyWithImpl(_ListId _value, $Res Function(_ListId) _then)
-      : super(_value, (v) => _then(v as _ListId));
+class __$UserIdCopyWithImpl<$Res> extends _$UserIdCopyWithImpl<$Res>
+    implements _$UserIdCopyWith<$Res> {
+  __$UserIdCopyWithImpl(_UserId _value, $Res Function(_UserId) _then)
+      : super(_value, (v) => _then(v as _UserId));
 
   @override
-  _ListId get _value => super._value as _ListId;
+  _UserId get _value => super._value as _UserId;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_ListId(
+    return _then(_UserId(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -95,22 +95,22 @@ class __$ListIdCopyWithImpl<$Res> extends _$ListIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ListId implements _ListId {
-  _$_ListId(this.value);
+class _$_UserId implements _UserId {
+  _$_UserId(this.value);
 
   @override
   final int value;
 
   @override
   String toString() {
-    return 'ListId(value: $value)';
+    return 'UserId(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ListId &&
+            other is _UserId &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -120,16 +120,16 @@ class _$_ListId implements _ListId {
 
   @JsonKey(ignore: true)
   @override
-  _$ListIdCopyWith<_ListId> get copyWith =>
-      __$ListIdCopyWithImpl<_ListId>(this, _$identity);
+  _$UserIdCopyWith<_UserId> get copyWith =>
+      __$UserIdCopyWithImpl<_UserId>(this, _$identity);
 }
 
-abstract class _ListId implements ListId {
-  factory _ListId(int value) = _$_ListId;
+abstract class _UserId implements UserId {
+  factory _UserId(int value) = _$_UserId;
 
   @override
   int get value;
   @override
   @JsonKey(ignore: true)
-  _$ListIdCopyWith<_ListId> get copyWith => throw _privateConstructorUsedError;
+  _$UserIdCopyWith<_UserId> get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
 
 class ReceiptPriceLabelWidget extends StatelessWidget {
@@ -18,7 +18,7 @@ class ReceiptPriceLabelWidget extends StatelessWidget {
       ),
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       child: Text(
-        AppLocalizations.of(context)!.receiptLabel,
+        context.l10n.receiptLabel,
         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 10),
       ),
     );

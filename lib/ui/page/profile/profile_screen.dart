@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/app_locale.dart';
 import 'package:pharmacy/ui/locale/locale_bloc.dart';
 import 'package:pharmacy/ui/locale/locale_event.dart';
@@ -19,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: _buildAppBar(context),
-          backgroundColor: AppColors.greenPrimaryColor,
+          backgroundColor: AppColors.colorPrimary,
           bottomNavigationBar: MainBottomNavigationWidget(),
           body: _buildBody(context, state),
         );
@@ -95,7 +95,7 @@ class ProfileScreen extends StatelessWidget {
         //                 borderRadius: BorderRadius.circular(50),
         //                 border: Border.all(color: AppColors.grayscaleDividerColor, width: 3),
         //                 color: state.locale == AppLocale.en
-        //                     ? AppColors.greenPrimaryColor
+        //                     ? AppColors.colorPrimary
         //                     : AppColors.grayscaleDividerColor,
         //               ),
         //             ),
@@ -104,7 +104,7 @@ class ProfileScreen extends StatelessWidget {
         //               "Английский",
         //               style: TextStyle(
         //                 fontSize: 16,
-        //                 color: state.locale == AppLocale.en ? AppColors.greenPrimaryColor : AppColors.textPrimaryColor,
+        //                 color: state.locale == AppLocale.en ? AppColors.colorPrimary : AppColors.textPrimaryColor,
         //               ),
         //             )
         //           ],
@@ -118,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
         //     child: Visibility(
         //       visible: state.error != null,
         //       child: Text(
-        //         AppLocalizations.of(context)!.generalErrorMessage,
+        //         context.l10n.generalErrorMessage,
         //         style: const TextStyle(
         //           fontSize: 12,
         //           fontWeight: FontWeight.w500,
@@ -140,7 +140,7 @@ class ProfileScreen extends StatelessWidget {
       elevation: 0,
       backgroundColor: AppColors.colorPrimary,
       title: Text(
-        AppLocalizations.of(context)!.profilePageTitle,
+        context.l10n.profilePageTitle,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,

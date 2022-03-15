@@ -1,6 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/domain/model/product_widget.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
@@ -49,7 +49,7 @@ class ProductScreen extends StatelessWidget {
       ),
       backgroundColor: AppColors.colorPrimary,
       title: Text(
-        AppLocalizations.of(context)!.productPageTitle,
+        context.l10n.productPageTitle,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,

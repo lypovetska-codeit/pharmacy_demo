@@ -1,6 +1,7 @@
+//ignore_for_file:depend_on_referenced_packages
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/ui/navigation/main_nav_bloc.dart';
 import 'package:pharmacy/ui/navigation/main_nav_event.dart';
 import 'package:pharmacy/ui/navigation/main_nav_item.dart';
@@ -15,15 +16,15 @@ class MainBottomNavigationWidget extends StatelessWidget {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: const Icon(Icons.home),
-              label: AppLocalizations.of(context)!.homePageTitle,
+              label: context.l10n.homePageTitle,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.list),
-              label: AppLocalizations.of(context)!.catalogPageTitle,
+              label: context.l10n.catalogPageTitle,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.supervised_user_circle_sharp),
-              label: AppLocalizations.of(context)!.profilePageTitle,
+              label: context.l10n.profilePageTitle,
             ),
           ],
           currentIndex: state.items.last.mainNavItemPosition,
