@@ -100,28 +100,28 @@ class AppStyle {
   );
 
   static ButtonStyle outlineButtonLightStyleSmall = ButtonStyle(
+    maximumSize: MaterialStateProperty.resolveWith<Size>((Set<MaterialState> states) {
+      return const Size(double.infinity, 22);
+    }),
+    minimumSize: MaterialStateProperty.resolveWith<Size>((Set<MaterialState> states) {
+      return const Size(double.infinity, 22);
+    }),
     backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
       if (states.contains(MaterialState.disabled)) {
         return AppColors.grayscaleDividerColor;
       }
-      return AppColors.colorPrimary; // Defer to the widget's default.
+      return AppColors.colorAccentLight; // Defer to the widget's default.
     }),
     shape: MaterialStateProperty.resolveWith(
       (states) => const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(14),
+          Radius.circular(6),
         ),
       ),
     ),
     padding: MaterialStateProperty.resolveWith(
-      (states) => const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      (states) => EdgeInsets.zero,
     ),
-    side: MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
-        return const BorderSide(color: AppColors.grayscaleDividerColor);
-      }
-      return const BorderSide(color: AppColors.colorPrimary);
-    }),
   );
   static ButtonStyle outlineButtonDestructiveLightStyleSmall = ButtonStyle(
     backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
@@ -189,20 +189,9 @@ class AppStyle {
     );
   }
 
-  static TextStyle primaryTextStyle = const TextStyle(
-    fontSize: 14,
-    fontFamily: "Manrope",
-    color: AppColors.textPrimaryColor,
-    fontWeight: FontWeight.w500,
-  );
-  static TextStyle secondaryTextStyle = const TextStyle(
-    fontSize: 12,
-    color: AppColors.textPrimaryColor,
-    fontWeight: FontWeight.w500,
-  );
-  static TextStyle headerTextStyle = const TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-    color: AppColors.textPrimaryColor,
+  static TextStyle textStyleOutlineButtonLightStyleSmall = const TextStyle(
+    fontWeight: FontWeight.w800,
+    fontSize: 10,
+    color: AppColors.colorAccent,
   );
 }

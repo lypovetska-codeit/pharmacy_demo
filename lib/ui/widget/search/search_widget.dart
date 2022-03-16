@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:pharmacy/domain/model/product.dart';
-import 'package:pharmacy/domain/model/product_id.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/widget/search/search_bloc.dart';
 import 'package:pharmacy/ui/widget/search/search_event.dart';
