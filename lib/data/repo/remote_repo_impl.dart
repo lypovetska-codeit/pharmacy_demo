@@ -56,6 +56,7 @@ class RemoteRepoImpl extends RemoteRepo {
               discount: index.isEven ? 100 : 0,
               images: [],
               requireReceipt: index.isEven,
+              origin: 'Poland',
             ),
           ).toList(),
         );
@@ -69,6 +70,7 @@ class RemoteRepoImpl extends RemoteRepo {
       Product(
         id: ProductId(1),
         name: "Pills",
+        origin: "Poland",
         price: 100.0,
         discount: 0,
         images: [],

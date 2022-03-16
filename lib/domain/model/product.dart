@@ -8,6 +8,7 @@ class Product with _$Product {
   factory Product({
     required final ProductId id,
     required final String name,
+    required final String origin,
     required final double price,
     required final double discount,
     required final List<String> images,

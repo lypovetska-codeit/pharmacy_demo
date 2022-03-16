@@ -56,7 +56,7 @@ class ProductWidget extends StatelessWidget {
                 height: 150,
                 errorBuilder: (context, error, stackTrace) => SvgPicture.asset(
                   "assets/images/drug_placeholder.svg",
-                  width: 150,
+                  width: 100,
                 ),
               ),
             ),
@@ -66,6 +66,15 @@ class ProductWidget extends StatelessWidget {
               style: const TextStyle(
                 overflow: TextOverflow.ellipsis,
                 fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Text(
+              item.origin,
+              style: const TextStyle(
+                overflow: TextOverflow.ellipsis,
+                fontSize: 10,
+                color: AppColors.textSecondaryColor,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -91,6 +100,7 @@ class ProductWidget extends StatelessWidget {
                         "\$ ${item.price}",
                         style: const TextStyle(
                           fontSize: 10,
+                          color: AppColors.textSecondaryColor,
                           decoration: TextDecoration.lineThrough,
                           fontWeight: FontWeight.w500,
                         ),
@@ -99,7 +109,7 @@ class ProductWidget extends StatelessWidget {
                   ],
                 ),
                 Material(
-                  color: AppColors.colorPrimary,
+                  color: AppColors.colorAccentLight,
                   clipBehavior: Clip.hardEdge,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
@@ -112,10 +122,7 @@ class ProductWidget extends StatelessWidget {
                     },
                     child: Container(
                       padding: const EdgeInsets.all(12),
-                      child: const Icon(
-                        Icons.add_shopping_cart,
-                        color: AppColors.grayscaleWhiteColor,
-                      ),
+                      child: SvgPicture.asset("assets/icons/ic_add_cart.svg"),
                     ),
                   ),
                 ),

@@ -17,6 +17,7 @@ class AppColors {
   static const grayscaleDividerColorDisabled = Color(0x80e0e0e0);
 
   static const textPrimaryColor = Color(0xff373843);
+  static const iconPrimaryColor = Color(0x4d373843);
   static const textSecondaryColor = Color(0xff87888e);
   static const textContrastColor = Color(0xffffffff);
   static const borderColor = Color(0xffE0E0E0);

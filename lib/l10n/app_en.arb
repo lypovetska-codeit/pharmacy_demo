@@ -1,5 +1,5 @@
 {
-  "profilePageTitle": "Profile page",
+  "profilePageTitle": "Profile",
   "@profilePageTitle": {
     "description": "a title for profile page"
   },
@@ -7,7 +7,7 @@
   "@receiptLabel": {
     "description": "a title for receipt label"
   },
-  "catalogPageTitle": "Catalog page",
+  "catalogPageTitle": "Catalog",
   "@catalogPageTitle": {
     "description": "a title for catalog page"
   },
@@ -15,11 +15,11 @@
   "@generalErrorMessage": {
     "description": "general error message"
   },
-  "homePageTitle": "Home page",
+  "homePageTitle": "Home",
   "@homePageTitle": {
     "description": "a title for home page"
   },
-  "productPageTitle": "Product page",
+  "productPageTitle": "Product",
   "@productPageTitle": {
     "description": "a title for product page"
   },
