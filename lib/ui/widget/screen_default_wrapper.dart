@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/ui/style/app_colors.dart';
 
 class ScreenDefaultWrapper extends StatelessWidget {
   final Widget child;
@@ -9,7 +8,7 @@ class ScreenDefaultWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.colorPrimary,
+      color: Colors.transparent,
       child: ClipRRect(
         borderRadius: const BorderRadius.only(
           topRight: Radius.circular(20),

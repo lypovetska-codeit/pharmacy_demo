@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy/ui/style/app_colors.dart';
 
 class HandlerWidget extends StatelessWidget {
   const HandlerWidget({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _HandlerPainter extends CustomPainter {
     const handlerBottomPadding = 3.0;
 
     final paintIndicator = Paint()
-      ..color = Colors.white
+      ..color = AppColors.grayscaleWhiteColor
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = handlerHeight;

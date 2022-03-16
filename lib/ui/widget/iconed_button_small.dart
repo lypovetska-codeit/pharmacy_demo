@@ -12,7 +12,9 @@ class IconedButtonSmall extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: AppStyle.outlineButtonLightStyleSmall,
-      onPressed: () {},
+      onPressed: () {
+        onPressed();
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

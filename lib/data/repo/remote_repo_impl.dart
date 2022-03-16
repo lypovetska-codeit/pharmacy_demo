@@ -3,7 +3,9 @@ import 'package:pharmacy/domain/model/category_id.dart';
 import 'package:pharmacy/domain/model/page.dart';
 import 'package:pharmacy/domain/model/paged_products.dart';
 import 'package:pharmacy/domain/model/product.dart';
+import 'package:pharmacy/domain/model/product_category.dart';
 import 'package:pharmacy/domain/model/product_id.dart';
+import 'package:pharmacy/domain/model/product_sort_order.dart';
 import 'package:pharmacy/domain/model/tag.dart';
 import 'package:pharmacy/domain/repo/remote_repo.dart';
 
@@ -40,7 +42,7 @@ class RemoteRepoImpl extends RemoteRepo {
   }
 
   @override
-  Future<PagedProducts> getProductList(Page page) async {
+  Future<PagedProducts> getProductList(Page page, Set<ProductCategory> categories, ProductSortOrder sortOrder) async {
     return Future.delayed(const Duration(milliseconds: 500), () {
       if (page.current > 10) {
         return PagedProducts(page: page, items: []);

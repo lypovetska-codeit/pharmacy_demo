@@ -74,12 +74,12 @@ class AppStyle {
     ),
   );
 
-  static ButtonStyle outlineButtonPrimaryStyleSmall = ButtonStyle(
+  static ButtonStyle outlineButtonAccentStyleSmall = ButtonStyle(
     backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
       if (states.contains(MaterialState.disabled)) {
         return AppColors.grayscaleDividerColor;
       }
-      return AppColors.colorPrimary; // Defer to the widget's default.
+      return AppColors.colorAccent; // Defer to the widget's default.
     }),
     shape: MaterialStateProperty.resolveWith(
       (states) => const RoundedRectangleBorder(
@@ -95,7 +95,7 @@ class AppStyle {
       if (states.contains(MaterialState.disabled)) {
         return const BorderSide(color: AppColors.grayscaleDividerColor);
       }
-      return const BorderSide(color: AppColors.colorPrimary);
+      return const BorderSide(color: AppColors.colorAccent);
     }),
   );
 
@@ -193,5 +193,10 @@ class AppStyle {
     fontWeight: FontWeight.w800,
     fontSize: 10,
     color: AppColors.colorAccent,
+  );
+  static TextStyle textStyleOutlineButtonAccentStyleSmall = const TextStyle(
+    fontWeight: FontWeight.w800,
+    fontSize: 14,
+    color: AppColors.grayscaleWhiteColor,
   );
 }

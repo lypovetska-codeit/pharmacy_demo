@@ -1,4 +1,3 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmacy/build_context_extensions.dart';
@@ -6,6 +5,7 @@ import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/user/user_bloc.dart';
 import 'package:pharmacy/ui/user/user_event.dart';
 import 'package:pharmacy/ui/user/user_state.dart';
+import 'package:pharmacy/ui/widget/dotted_text_button.dart';
 
 class UserCardPreview extends StatelessWidget {
   const UserCardPreview({Key? key}) : super(key: key);
@@ -41,20 +41,14 @@ class UserCardPreview extends StatelessWidget {
                       const SizedBox(height: 12),
                       Visibility(
                         visible: loadedState.user.map(authorized: (_) => false, guest: (_) => true),
-                        child: GestureDetector(
-                          onTap: () => context.read<UserBloc>().add(UserEvent.authorize()),
-                          child: DottedBorder(
-                            dashPattern: const [1, 2],
-                            color: AppColors.textPrimaryColor,
-                            customPath: (size) {
-                              return Path()
-                                ..moveTo(0, size.height)
-                                ..lineTo(size.width, size.height);
-                            },
-                            child: Text(
-                              context.l10n.joinUs,
-                              style: const TextStyle(fontSize: 14, color: AppColors.textPrimaryColor),
-                            ),
+                        child: DottedTextButton(
+                          color: AppColors.textPrimaryColor,
+                          onPressed: () {
+                            context.read<UserBloc>().add(UserEvent.authorize());
+                          },
+                          child: Text(
+                            context.l10n.joinUs,
+                            style: const TextStyle(fontSize: 14, color: AppColors.textPrimaryColor),
                           ),
                         ),
                       )

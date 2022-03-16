@@ -10,6 +10,8 @@ class Page with _$Page {
     required final int next,
     required final int pageSize,
   }) = _Page;
+
+
 }
 
 extension PageExtension on Page {

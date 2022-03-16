@@ -1,5 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -27,42 +25,57 @@ class _PaginatedProductListState extends State<PaginatedProductList> {
   @override
   void didChangeDependencies() {
     _pagingController.addPageRequestListener(
-      (pageKey) => context.read<CatalogBloc>().add(CatalogEvent(pageKey)),
+      (pageKey) {
+        print("### $pageKey");
+        context.read<CatalogBloc>().add(CatalogEvent.loadPage(pageKey));
+      },
     );
     super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<CatalogBloc, CatalogState>(
-      listener: (context, state) {
-        state.map(
-          loaded: (state) {
-            try {
-              final isLastPage = state.page.current == state.page.next;
-              if (isLastPage) {
-                _pagingController.appendLastPage(state.items);
-              } else {
-                _pagingController.appendPage(state.items, state.page.next);
-              }
-            } catch (error) {
-              _pagingController.error = error;
-            }
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<CatalogBloc, CatalogState>(
+          listenWhen: (oldState, newState) {
+            return oldState.page.next > newState.page.next ||
+                oldState.productCategories != newState.productCategories ||
+                oldState.sortOrder != newState.sortOrder;
           },
-          loadedInitial: (state) {
-            _pagingController.value = PagingState(
-              nextPageKey: state.page.next,
-              itemList: state.items,
+          listener: (context, state) => _pagingController.refresh(),
+        ),
+        BlocListener<CatalogBloc, CatalogState>(
+          listener: (context, state) {
+            state.map(
+              loaded: (state) {
+                try {
+                  final isLastPage = state.page.current == state.page.next;
+                  if (isLastPage) {
+                    _pagingController.appendLastPage(state.items);
+                  } else {
+                    _pagingController.appendPage(state.items, state.page.next);
+                  }
+                } catch (error) {
+                  _pagingController.error = error;
+                }
+              },
+              loadedInitial: (state) {
+                _pagingController.value = PagingState(
+                  nextPageKey: state.page.next,
+                  itemList: state.items,
+                );
+              },
+              loading: (state) {
+                // do nothing
+              },
+              error: (state) {
+                _pagingController.error = state.error;
+              },
             );
           },
-          loading: (state) {
-            // do nothing
-          },
-          error: (state) {
-            _pagingController.error = state.error;
-          },
-        );
-      },
+        )
+      ],
       child: RefreshIndicator(
         onRefresh: () => Future.sync(
           () => _pagingController.refresh(),

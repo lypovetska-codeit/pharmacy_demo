@@ -1,4 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
 import 'package:flutter/material.dart';
 import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product.dart';

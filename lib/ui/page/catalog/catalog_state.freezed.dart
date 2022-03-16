@@ -17,30 +17,52 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CatalogStateTearOff {
   const _$CatalogStateTearOff();
 
-  LoadedState loaded({required List<Product> items, required Page page}) {
+  LoadedState loaded(
+      {required List<Product> items,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories,
+      required Page page}) {
     return LoadedState(
       items: items,
+      sortOrder: sortOrder,
+      productCategories: productCategories,
       page: page,
     );
   }
 
   LoadedInitialState loadedInitial(
-      {required List<Product> items, required Page page}) {
+      {required List<Product> items,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories,
+      required Page page}) {
     return LoadedInitialState(
       items: items,
+      sortOrder: sortOrder,
+      productCategories: productCategories,
       page: page,
     );
   }
 
-  LoadingState loading({required Page page}) {
+  LoadingState loading(
+      {required Page page,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories}) {
     return LoadingState(
       page: page,
+      sortOrder: sortOrder,
+      productCategories: productCategories,
     );
   }
 
-  ErrorState error({required Object error, required Page page}) {
+  ErrorState error(
+      {required Object error,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories,
+      required Page page}) {
     return ErrorState(
       error: error,
+      sortOrder: sortOrder,
+      productCategories: productCategories,
       page: page,
     );
   }
@@ -51,30 +73,57 @@ const $CatalogState = _$CatalogStateTearOff();
 
 /// @nodoc
 mixin _$CatalogState {
+  ProductSortOrder get sortOrder => throw _privateConstructorUsedError;
+  Set<ProductCategory> get productCategories =>
+      throw _privateConstructorUsedError;
   Page get page => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> items, Page page) loaded,
-    required TResult Function(List<Product> items, Page page) loadedInitial,
-    required TResult Function(Page page) loading,
-    required TResult Function(Object error, Page page) error,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loaded,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loadedInitial,
+    required TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)
+        loading,
+    required TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,7 +163,10 @@ abstract class $CatalogStateCopyWith<$Res> {
   factory $CatalogStateCopyWith(
           CatalogState value, $Res Function(CatalogState) then) =
       _$CatalogStateCopyWithImpl<$Res>;
-  $Res call({Page page});
+  $Res call(
+      {ProductSortOrder sortOrder,
+      Set<ProductCategory> productCategories,
+      Page page});
 
   $PageCopyWith<$Res> get page;
 }
@@ -129,9 +181,19 @@ class _$CatalogStateCopyWithImpl<$Res> implements $CatalogStateCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? sortOrder = freezed,
+    Object? productCategories = freezed,
     Object? page = freezed,
   }) {
     return _then(_value.copyWith(
+      sortOrder: sortOrder == freezed
+          ? _value.sortOrder
+          : sortOrder // ignore: cast_nullable_to_non_nullable
+              as ProductSortOrder,
+      productCategories: productCategories == freezed
+          ? _value.productCategories
+          : productCategories // ignore: cast_nullable_to_non_nullable
+              as Set<ProductCategory>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -154,7 +216,11 @@ abstract class $LoadedStateCopyWith<$Res>
           LoadedState value, $Res Function(LoadedState) then) =
       _$LoadedStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Product> items, Page page});
+  $Res call(
+      {List<Product> items,
+      ProductSortOrder sortOrder,
+      Set<ProductCategory> productCategories,
+      Page page});
 
   @override
   $PageCopyWith<$Res> get page;
@@ -173,6 +239,8 @@ class _$LoadedStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
+    Object? sortOrder = freezed,
+    Object? productCategories = freezed,
     Object? page = freezed,
   }) {
     return _then(LoadedState(
@@ -180,6 +248,14 @@ class _$LoadedStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      sortOrder: sortOrder == freezed
+          ? _value.sortOrder
+          : sortOrder // ignore: cast_nullable_to_non_nullable
+              as ProductSortOrder,
+      productCategories: productCategories == freezed
+          ? _value.productCategories
+          : productCategories // ignore: cast_nullable_to_non_nullable
+              as Set<ProductCategory>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -191,16 +267,24 @@ class _$LoadedStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedState implements LoadedState {
-  _$LoadedState({required this.items, required this.page});
+  _$LoadedState(
+      {required this.items,
+      required this.sortOrder,
+      required this.productCategories,
+      required this.page});
 
   @override
   final List<Product> items;
+  @override
+  final ProductSortOrder sortOrder;
+  @override
+  final Set<ProductCategory> productCategories;
   @override
   final Page page;
 
   @override
   String toString() {
-    return 'CatalogState.loaded(items: $items, page: $page)';
+    return 'CatalogState.loaded(items: $items, sortOrder: $sortOrder, productCategories: $productCategories, page: $page)';
   }
 
   @override
@@ -209,6 +293,9 @@ class _$LoadedState implements LoadedState {
         (other.runtimeType == runtimeType &&
             other is LoadedState &&
             const DeepCollectionEquality().equals(other.items, items) &&
+            const DeepCollectionEquality().equals(other.sortOrder, sortOrder) &&
+            const DeepCollectionEquality()
+                .equals(other.productCategories, productCategories) &&
             const DeepCollectionEquality().equals(other.page, page));
   }
 
@@ -216,6 +303,8 @@ class _$LoadedState implements LoadedState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(items),
+      const DeepCollectionEquality().hash(sortOrder),
+      const DeepCollectionEquality().hash(productCategories),
       const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
@@ -226,36 +315,60 @@ class _$LoadedState implements LoadedState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> items, Page page) loaded,
-    required TResult Function(List<Product> items, Page page) loadedInitial,
-    required TResult Function(Page page) loading,
-    required TResult Function(Object error, Page page) error,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loaded,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loadedInitial,
+    required TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)
+        loading,
+    required TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        error,
   }) {
-    return loaded(items, page);
+    return loaded(items, sortOrder, productCategories, page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
   }) {
-    return loaded?.call(items, page);
+    return loaded?.call(items, sortOrder, productCategories, page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(items, page);
+      return loaded(items, sortOrder, productCategories, page);
     }
     return orElse();
   }
@@ -299,10 +412,17 @@ class _$LoadedState implements LoadedState {
 }
 
 abstract class LoadedState implements CatalogState {
-  factory LoadedState({required List<Product> items, required Page page}) =
-      _$LoadedState;
+  factory LoadedState(
+      {required List<Product> items,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories,
+      required Page page}) = _$LoadedState;
 
   List<Product> get items;
+  @override
+  ProductSortOrder get sortOrder;
+  @override
+  Set<ProductCategory> get productCategories;
   @override
   Page get page;
   @override
@@ -318,7 +438,11 @@ abstract class $LoadedInitialStateCopyWith<$Res>
           LoadedInitialState value, $Res Function(LoadedInitialState) then) =
       _$LoadedInitialStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Product> items, Page page});
+  $Res call(
+      {List<Product> items,
+      ProductSortOrder sortOrder,
+      Set<ProductCategory> productCategories,
+      Page page});
 
   @override
   $PageCopyWith<$Res> get page;
@@ -338,6 +462,8 @@ class _$LoadedInitialStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? items = freezed,
+    Object? sortOrder = freezed,
+    Object? productCategories = freezed,
     Object? page = freezed,
   }) {
     return _then(LoadedInitialState(
@@ -345,6 +471,14 @@ class _$LoadedInitialStateCopyWithImpl<$Res>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      sortOrder: sortOrder == freezed
+          ? _value.sortOrder
+          : sortOrder // ignore: cast_nullable_to_non_nullable
+              as ProductSortOrder,
+      productCategories: productCategories == freezed
+          ? _value.productCategories
+          : productCategories // ignore: cast_nullable_to_non_nullable
+              as Set<ProductCategory>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -356,16 +490,24 @@ class _$LoadedInitialStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedInitialState implements LoadedInitialState {
-  _$LoadedInitialState({required this.items, required this.page});
+  _$LoadedInitialState(
+      {required this.items,
+      required this.sortOrder,
+      required this.productCategories,
+      required this.page});
 
   @override
   final List<Product> items;
+  @override
+  final ProductSortOrder sortOrder;
+  @override
+  final Set<ProductCategory> productCategories;
   @override
   final Page page;
 
   @override
   String toString() {
-    return 'CatalogState.loadedInitial(items: $items, page: $page)';
+    return 'CatalogState.loadedInitial(items: $items, sortOrder: $sortOrder, productCategories: $productCategories, page: $page)';
   }
 
   @override
@@ -374,6 +516,9 @@ class _$LoadedInitialState implements LoadedInitialState {
         (other.runtimeType == runtimeType &&
             other is LoadedInitialState &&
             const DeepCollectionEquality().equals(other.items, items) &&
+            const DeepCollectionEquality().equals(other.sortOrder, sortOrder) &&
+            const DeepCollectionEquality()
+                .equals(other.productCategories, productCategories) &&
             const DeepCollectionEquality().equals(other.page, page));
   }
 
@@ -381,6 +526,8 @@ class _$LoadedInitialState implements LoadedInitialState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(items),
+      const DeepCollectionEquality().hash(sortOrder),
+      const DeepCollectionEquality().hash(productCategories),
       const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
@@ -391,36 +538,60 @@ class _$LoadedInitialState implements LoadedInitialState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> items, Page page) loaded,
-    required TResult Function(List<Product> items, Page page) loadedInitial,
-    required TResult Function(Page page) loading,
-    required TResult Function(Object error, Page page) error,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loaded,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loadedInitial,
+    required TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)
+        loading,
+    required TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        error,
   }) {
-    return loadedInitial(items, page);
+    return loadedInitial(items, sortOrder, productCategories, page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
   }) {
-    return loadedInitial?.call(items, page);
+    return loadedInitial?.call(items, sortOrder, productCategories, page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
     required TResult orElse(),
   }) {
     if (loadedInitial != null) {
-      return loadedInitial(items, page);
+      return loadedInitial(items, sortOrder, productCategories, page);
     }
     return orElse();
   }
@@ -466,9 +637,15 @@ class _$LoadedInitialState implements LoadedInitialState {
 abstract class LoadedInitialState implements CatalogState {
   factory LoadedInitialState(
       {required List<Product> items,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories,
       required Page page}) = _$LoadedInitialState;
 
   List<Product> get items;
+  @override
+  ProductSortOrder get sortOrder;
+  @override
+  Set<ProductCategory> get productCategories;
   @override
   Page get page;
   @override
@@ -484,7 +661,10 @@ abstract class $LoadingStateCopyWith<$Res>
           LoadingState value, $Res Function(LoadingState) then) =
       _$LoadingStateCopyWithImpl<$Res>;
   @override
-  $Res call({Page page});
+  $Res call(
+      {Page page,
+      ProductSortOrder sortOrder,
+      Set<ProductCategory> productCategories});
 
   @override
   $PageCopyWith<$Res> get page;
@@ -503,12 +683,22 @@ class _$LoadingStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = freezed,
+    Object? sortOrder = freezed,
+    Object? productCategories = freezed,
   }) {
     return _then(LoadingState(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as Page,
+      sortOrder: sortOrder == freezed
+          ? _value.sortOrder
+          : sortOrder // ignore: cast_nullable_to_non_nullable
+              as ProductSortOrder,
+      productCategories: productCategories == freezed
+          ? _value.productCategories
+          : productCategories // ignore: cast_nullable_to_non_nullable
+              as Set<ProductCategory>,
     ));
   }
 }
@@ -516,14 +706,21 @@ class _$LoadingStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadingState implements LoadingState {
-  _$LoadingState({required this.page});
+  _$LoadingState(
+      {required this.page,
+      required this.sortOrder,
+      required this.productCategories});
 
   @override
   final Page page;
+  @override
+  final ProductSortOrder sortOrder;
+  @override
+  final Set<ProductCategory> productCategories;
 
   @override
   String toString() {
-    return 'CatalogState.loading(page: $page)';
+    return 'CatalogState.loading(page: $page, sortOrder: $sortOrder, productCategories: $productCategories)';
   }
 
   @override
@@ -531,12 +728,18 @@ class _$LoadingState implements LoadingState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is LoadingState &&
-            const DeepCollectionEquality().equals(other.page, page));
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality().equals(other.sortOrder, sortOrder) &&
+            const DeepCollectionEquality()
+                .equals(other.productCategories, productCategories));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(page));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(sortOrder),
+      const DeepCollectionEquality().hash(productCategories));
 
   @JsonKey(ignore: true)
   @override
@@ -546,36 +749,60 @@ class _$LoadingState implements LoadingState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> items, Page page) loaded,
-    required TResult Function(List<Product> items, Page page) loadedInitial,
-    required TResult Function(Page page) loading,
-    required TResult Function(Object error, Page page) error,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loaded,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loadedInitial,
+    required TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)
+        loading,
+    required TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        error,
   }) {
-    return loading(page);
+    return loading(page, sortOrder, productCategories);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
   }) {
-    return loading?.call(page);
+    return loading?.call(page, sortOrder, productCategories);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(page);
+      return loading(page, sortOrder, productCategories);
     }
     return orElse();
   }
@@ -619,10 +846,17 @@ class _$LoadingState implements LoadingState {
 }
 
 abstract class LoadingState implements CatalogState {
-  factory LoadingState({required Page page}) = _$LoadingState;
+  factory LoadingState(
+      {required Page page,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories}) = _$LoadingState;
 
   @override
   Page get page;
+  @override
+  ProductSortOrder get sortOrder;
+  @override
+  Set<ProductCategory> get productCategories;
   @override
   @JsonKey(ignore: true)
   $LoadingStateCopyWith<LoadingState> get copyWith =>
@@ -636,7 +870,11 @@ abstract class $ErrorStateCopyWith<$Res>
           ErrorState value, $Res Function(ErrorState) then) =
       _$ErrorStateCopyWithImpl<$Res>;
   @override
-  $Res call({Object error, Page page});
+  $Res call(
+      {Object error,
+      ProductSortOrder sortOrder,
+      Set<ProductCategory> productCategories,
+      Page page});
 
   @override
   $PageCopyWith<$Res> get page;
@@ -654,6 +892,8 @@ class _$ErrorStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? error = freezed,
+    Object? sortOrder = freezed,
+    Object? productCategories = freezed,
     Object? page = freezed,
   }) {
     return _then(ErrorState(
@@ -661,6 +901,14 @@ class _$ErrorStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as Object,
+      sortOrder: sortOrder == freezed
+          ? _value.sortOrder
+          : sortOrder // ignore: cast_nullable_to_non_nullable
+              as ProductSortOrder,
+      productCategories: productCategories == freezed
+          ? _value.productCategories
+          : productCategories // ignore: cast_nullable_to_non_nullable
+              as Set<ProductCategory>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -672,16 +920,24 @@ class _$ErrorStateCopyWithImpl<$Res> extends _$CatalogStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorState implements ErrorState {
-  _$ErrorState({required this.error, required this.page});
+  _$ErrorState(
+      {required this.error,
+      required this.sortOrder,
+      required this.productCategories,
+      required this.page});
 
   @override
   final Object error;
+  @override
+  final ProductSortOrder sortOrder;
+  @override
+  final Set<ProductCategory> productCategories;
   @override
   final Page page;
 
   @override
   String toString() {
-    return 'CatalogState.error(error: $error, page: $page)';
+    return 'CatalogState.error(error: $error, sortOrder: $sortOrder, productCategories: $productCategories, page: $page)';
   }
 
   @override
@@ -690,6 +946,9 @@ class _$ErrorState implements ErrorState {
         (other.runtimeType == runtimeType &&
             other is ErrorState &&
             const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality().equals(other.sortOrder, sortOrder) &&
+            const DeepCollectionEquality()
+                .equals(other.productCategories, productCategories) &&
             const DeepCollectionEquality().equals(other.page, page));
   }
 
@@ -697,6 +956,8 @@ class _$ErrorState implements ErrorState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(sortOrder),
+      const DeepCollectionEquality().hash(productCategories),
       const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
@@ -707,36 +968,60 @@ class _$ErrorState implements ErrorState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Product> items, Page page) loaded,
-    required TResult Function(List<Product> items, Page page) loadedInitial,
-    required TResult Function(Page page) loading,
-    required TResult Function(Object error, Page page) error,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loaded,
+    required TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        loadedInitial,
+    required TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)
+        loading,
+    required TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)
+        error,
   }) {
-    return error(this.error, page);
+    return error(this.error, sortOrder, productCategories, page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
   }) {
-    return error?.call(this.error, page);
+    return error?.call(this.error, sortOrder, productCategories, page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Product> items, Page page)? loaded,
-    TResult Function(List<Product> items, Page page)? loadedInitial,
-    TResult Function(Page page)? loading,
-    TResult Function(Object error, Page page)? error,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loaded,
+    TResult Function(List<Product> items, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        loadedInitial,
+    TResult Function(Page page, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories)?
+        loading,
+    TResult Function(Object error, ProductSortOrder sortOrder,
+            Set<ProductCategory> productCategories, Page page)?
+        error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error, page);
+      return error(this.error, sortOrder, productCategories, page);
     }
     return orElse();
   }
@@ -780,10 +1065,17 @@ class _$ErrorState implements ErrorState {
 }
 
 abstract class ErrorState implements CatalogState {
-  factory ErrorState({required Object error, required Page page}) =
-      _$ErrorState;
+  factory ErrorState(
+      {required Object error,
+      required ProductSortOrder sortOrder,
+      required Set<ProductCategory> productCategories,
+      required Page page}) = _$ErrorState;
 
   Object get error;
+  @override
+  ProductSortOrder get sortOrder;
+  @override
+  Set<ProductCategory> get productCategories;
   @override
   Page get page;
   @override
