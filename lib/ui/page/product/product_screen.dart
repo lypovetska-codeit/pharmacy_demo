@@ -198,19 +198,20 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             const SizedBox(width: 16),
             Expanded(
-                child: OutlinedButton(
-              style: AppStyle.outlineButtonAccentStyleSmall,
-              onPressed: () {
-                context
-                    .read<CartBloc>()
-                    .add(CartEvent.addToCart(CartProduct(count: selectedCount, product: widget.product)));
-                Navigator.pop(context);
-              },
-              child: Text(
-                "Add to Cart",
-                style: AppStyle.textStyleOutlineButtonAccentStyleSmall,
+              child: OutlinedButton(
+                style: AppStyle.outlineButtonAccentStyleSmall,
+                onPressed: () {
+                  context
+                      .read<CartBloc>()
+                      .add(CartEvent.addToCart(CartProduct(count: selectedCount, product: widget.product)));
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Add to Cart",
+                  style: AppStyle.textStyleOutlineButtonAccentStyleSmall,
+                ),
               ),
-            )),
+            ),
           ],
         ),
       ),

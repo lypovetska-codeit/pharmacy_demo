@@ -1,3 +1,4 @@
+//ignore_for_file:depend_on_referenced_packages
 import 'package:fimber/fimber.dart';
 import 'package:pharmacy/data/db/cart_db.dart';
 import 'package:pharmacy/data/db/entity/cart_entity.dart';
@@ -11,6 +12,10 @@ import 'package:synchronized/synchronized.dart';
 
 class CartRepoImpl extends CartRepo {
   final BehaviorSubject<Set<CartProduct>> _cart = BehaviorSubject.seeded({});
+
+  CartRepoImpl() {
+    _fetchCart();
+  }
 
   final Lock _dbLock = Lock();
   CartDb? _db;
@@ -66,20 +71,21 @@ class CartRepoImpl extends CartRepo {
 extension CartProductExtension on CartProduct {
   CartEntity toEntity() {
     return CartEntity(
-        product.id.value,
-        product.name,
-        product.origin,
-        product.price,
-        product.discount,
-        product.requireReceipt,
-        product.category.map(
-          pills: (_) => "pills",
-          medicines: (_) => "medicines",
-          equipment: (_) => "equipment",
-        ),
-        count,
-        product.image,
-        product.description);
+      product.id.value,
+      product.name,
+      product.origin,
+      product.price,
+      product.discount,
+      product.requireReceipt,
+      product.category.map(
+        pills: (_) => "pills",
+        medicines: (_) => "medicines",
+        equipment: (_) => "equipment",
+      ),
+      count,
+      product.image,
+      product.description,
+    );
   }
 }
 
