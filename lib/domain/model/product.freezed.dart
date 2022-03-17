@@ -23,16 +23,20 @@ class _$ProductTearOff {
       required String origin,
       required double price,
       required double discount,
-      required List<String> images,
-      required bool requireReceipt}) {
+      required String image,
+      required bool requireReceipt,
+      required ProductCategory category,
+      required String description}) {
     return _Product(
       id: id,
       name: name,
       origin: origin,
       price: price,
       discount: discount,
-      images: images,
+      image: image,
       requireReceipt: requireReceipt,
+      category: category,
+      description: description,
     );
   }
 }
@@ -47,8 +51,10 @@ mixin _$Product {
   String get origin => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   double get discount => throw _privateConstructorUsedError;
-  List<String> get images => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
   bool get requireReceipt => throw _privateConstructorUsedError;
+  ProductCategory get category => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -64,8 +70,10 @@ abstract class $ProductCopyWith<$Res> {
       String origin,
       double price,
       double discount,
-      List<String> images,
-      bool requireReceipt});
+      String image,
+      bool requireReceipt,
+      ProductCategory category,
+      String description});
 
   $ProductIdCopyWith<$Res> get id;
 }
@@ -85,8 +93,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? origin = freezed,
     Object? price = freezed,
     Object? discount = freezed,
-    Object? images = freezed,
+    Object? image = freezed,
     Object? requireReceipt = freezed,
+    Object? category = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -109,14 +119,22 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
       requireReceipt: requireReceipt == freezed
           ? _value.requireReceipt
           : requireReceipt // ignore: cast_nullable_to_non_nullable
               as bool,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ProductCategory,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -139,8 +157,10 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String origin,
       double price,
       double discount,
-      List<String> images,
-      bool requireReceipt});
+      String image,
+      bool requireReceipt,
+      ProductCategory category,
+      String description});
 
   @override
   $ProductIdCopyWith<$Res> get id;
@@ -162,8 +182,10 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? origin = freezed,
     Object? price = freezed,
     Object? discount = freezed,
-    Object? images = freezed,
+    Object? image = freezed,
     Object? requireReceipt = freezed,
+    Object? category = freezed,
+    Object? description = freezed,
   }) {
     return _then(_Product(
       id: id == freezed
@@ -186,14 +208,22 @@ class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double,
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
       requireReceipt: requireReceipt == freezed
           ? _value.requireReceipt
           : requireReceipt // ignore: cast_nullable_to_non_nullable
               as bool,
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ProductCategory,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -207,8 +237,10 @@ class _$_Product implements _Product {
       required this.origin,
       required this.price,
       required this.discount,
-      required this.images,
-      required this.requireReceipt});
+      required this.image,
+      required this.requireReceipt,
+      required this.category,
+      required this.description});
 
   @override
   final ProductId id;
@@ -221,13 +253,17 @@ class _$_Product implements _Product {
   @override
   final double discount;
   @override
-  final List<String> images;
+  final String image;
   @override
   final bool requireReceipt;
+  @override
+  final ProductCategory category;
+  @override
+  final String description;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, origin: $origin, price: $price, discount: $discount, images: $images, requireReceipt: $requireReceipt)';
+    return 'Product(id: $id, name: $name, origin: $origin, price: $price, discount: $discount, image: $image, requireReceipt: $requireReceipt, category: $category, description: $description)';
   }
 
   @override
@@ -240,9 +276,12 @@ class _$_Product implements _Product {
             const DeepCollectionEquality().equals(other.origin, origin) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality().equals(other.discount, discount) &&
-            const DeepCollectionEquality().equals(other.images, images) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality()
-                .equals(other.requireReceipt, requireReceipt));
+                .equals(other.requireReceipt, requireReceipt) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
   }
 
   @override
@@ -253,8 +292,10 @@ class _$_Product implements _Product {
       const DeepCollectionEquality().hash(origin),
       const DeepCollectionEquality().hash(price),
       const DeepCollectionEquality().hash(discount),
-      const DeepCollectionEquality().hash(images),
-      const DeepCollectionEquality().hash(requireReceipt));
+      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(requireReceipt),
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -269,8 +310,10 @@ abstract class _Product implements Product {
       required String origin,
       required double price,
       required double discount,
-      required List<String> images,
-      required bool requireReceipt}) = _$_Product;
+      required String image,
+      required bool requireReceipt,
+      required ProductCategory category,
+      required String description}) = _$_Product;
 
   @override
   ProductId get id;
@@ -283,9 +326,13 @@ abstract class _Product implements Product {
   @override
   double get discount;
   @override
-  List<String> get images;
+  String get image;
   @override
   bool get requireReceipt;
+  @override
+  ProductCategory get category;
+  @override
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$ProductCopyWith<_Product> get copyWith =>

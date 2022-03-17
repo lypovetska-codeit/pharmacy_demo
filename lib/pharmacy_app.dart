@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pharmacy/domain/model/app_locale.dart';
+import 'package:pharmacy/ui/cart/cart_bloc.dart';
 import 'package:pharmacy/ui/locale/locale_bloc.dart';
 import 'package:pharmacy/ui/locale/locale_state.dart';
 import 'package:pharmacy/ui/navigation/main_nav_bloc.dart';
@@ -37,6 +37,7 @@ class _PharmacyAppState extends State<PharmacyApp> {
         BlocProvider<MainNavBloc>(create: (_) => widget.appComponent.resolve()),
         BlocProvider<LocaleBloc>(create: (_) => widget.appComponent.resolve()),
         BlocProvider<UserBloc>(create: (_) => widget.appComponent.resolve()),
+        BlocProvider<CartBloc>(create: (_) => widget.appComponent.resolve()),
       ],
       child: _buildApp(),
     );

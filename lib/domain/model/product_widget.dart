@@ -52,7 +52,7 @@ class ProductWidget extends StatelessWidget {
             const Spacer(),
             Center(
               child: Image.network(
-                item.images.isNotEmpty == true ? item.images.first : "",
+                item.image ,
                 height: 150,
                 errorBuilder: (context, error, stackTrace) => SvgPicture.asset(
                   "assets/images/drug_placeholder.svg",

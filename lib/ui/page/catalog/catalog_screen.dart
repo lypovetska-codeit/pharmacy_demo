@@ -50,30 +50,32 @@ class _CatalogScreenState extends State<CatalogScreen> {
               onFocus: (_) {},
               appComponent: widget.appComponent,
             ),
-            BlocBuilder<CatalogBloc, CatalogState>(builder: (context, state) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: IconedButtonSmall(
-                        onPressed: () => _openFilter(context, state.productCategories),
-                        title: "FILTER",
-                        icon: SvgPicture.asset("assets/icons/ic_filter.svg"),
+            BlocBuilder<CatalogBloc, CatalogState>(
+              builder: (context, state) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: IconedButtonSmall(
+                          onPressed: () => _openFilter(context, state.productCategories),
+                          title: "FILTER",
+                          icon: SvgPicture.asset("assets/icons/ic_filter.svg"),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: IconedButtonSmall(
-                        onPressed: () => _openSort(context),
-                        title: "BY RATING",
-                        icon: SvgPicture.asset("assets/icons/ic_sort.svg"),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: IconedButtonSmall(
+                          onPressed: () => _openSort(context),
+                          title: "BY RATING",
+                          icon: SvgPicture.asset("assets/icons/ic_sort.svg"),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            }),
+                    ],
+                  ),
+                );
+              },
+            ),
             const Expanded(
               child: ScreenDefaultWrapper(
                 child: PaginatedProductList(),

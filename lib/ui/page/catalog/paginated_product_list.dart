@@ -26,7 +26,6 @@ class _PaginatedProductListState extends State<PaginatedProductList> {
   void didChangeDependencies() {
     _pagingController.addPageRequestListener(
       (pageKey) {
-        print("### $pageKey");
         context.read<CatalogBloc>().add(CatalogEvent.loadPage(pageKey));
       },
     );

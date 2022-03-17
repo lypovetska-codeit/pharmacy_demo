@@ -1,3 +1,4 @@
+import 'package:pharmacy/ui/cart/cart_bloc.dart';
 import 'package:pharmacy/ui/locale/locale_bloc.dart';
 import 'package:pharmacy/ui/navigation/main_nav_bloc.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_bloc.dart';
@@ -34,6 +35,9 @@ Module blocsModule() => moduleOf(
         );
         r.factory<UserBloc>(
           (r) => UserBloc(r.resolve()),
+        );
+        r.factory<CartBloc>(
+          (r) => CartBloc(r.resolve()),
         );
       },
     );
