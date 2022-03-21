@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmacy/domain/model/cart_product.dart';
 import 'package:pharmacy/domain/model/product.dart';
-import 'package:pharmacy/ui/cart/cart_bloc.dart';
-import 'package:pharmacy/ui/cart/cart_event.dart';
-import 'package:pharmacy/ui/cart/cart_state.dart';
+import 'package:pharmacy/ui/page/cart/cart_bloc.dart';
+import 'package:pharmacy/ui/page/cart/cart_event.dart';
+import 'package:pharmacy/ui/page/cart/cart_state.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/style/app_style.dart';
 import 'package:pharmacy/ui/style/text_helper.dart';
@@ -82,7 +82,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       Positioned(
                         top: 40,
                         child: IconButton(
-                          icon: const Icon(Icons.arrow_back),
+                          icon: SvgPicture.asset("assets/icons/ic_back.svg"),
                           onPressed: () {
                             Navigator.pop(context);
                           },

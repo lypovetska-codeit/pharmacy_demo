@@ -77,7 +77,7 @@ class AppStyle {
   static ButtonStyle outlineButtonAccentStyleSmall = ButtonStyle(
     backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
       if (states.contains(MaterialState.disabled)) {
-        return AppColors.grayscaleDividerColor;
+        return AppColors.grayscaleDividerColorDisabled;
       }
       return AppColors.colorAccent; // Defer to the widget's default.
     }),
@@ -93,7 +93,7 @@ class AppStyle {
     ),
     side: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
-        return const BorderSide(color: AppColors.grayscaleDividerColor);
+        return const BorderSide(color: AppColors.grayscaleDividerColorDisabled);
       }
       return const BorderSide(color: AppColors.colorAccent);
     }),

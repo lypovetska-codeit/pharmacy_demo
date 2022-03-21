@@ -5,6 +5,7 @@ import 'package:pharmacy/ui/navigation/main_nav_event.dart';
 import 'package:pharmacy/ui/navigation/main_nav_item.dart';
 import 'package:pharmacy/ui/navigation/main_nav_state.dart';
 import 'package:pharmacy/ui/navigation/no_animation_page.dart';
+import 'package:pharmacy/ui/page/cart/cart_screen.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_screen.dart';
 import 'package:pharmacy/ui/page/home/home_screen.dart';
 import 'package:pharmacy/ui/page/product/product_screen.dart';
@@ -56,6 +57,14 @@ class MainNavRouterDelegate extends RouterDelegate<MainNavItem>
                     key: ValueKey(screen),
                     child: ProductScreen(
                       screen.product,
+                      key: ValueKey(screen),
+                    ),
+                  )
+                ],
+                cartScreen: (screen) => [
+                  NoAnimationPage(
+                    key: ValueKey(screen),
+                    child: CartScreen(
                       key: ValueKey(screen),
                     ),
                   )

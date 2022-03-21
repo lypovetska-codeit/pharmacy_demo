@@ -4,11 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product_category.dart';
 import 'package:pharmacy/domain/model/product_sort_order.dart';
-import 'package:pharmacy/ui/cart/cart_bloc.dart';
-import 'package:pharmacy/ui/cart/cart_state.dart';
 import 'package:pharmacy/ui/navigation/main_nav_bloc.dart';
 import 'package:pharmacy/ui/navigation/main_nav_event.dart';
 import 'package:pharmacy/ui/navigation/main_nav_item.dart';
+import 'package:pharmacy/ui/page/cart/cart_bloc.dart';
+import 'package:pharmacy/ui/page/cart/cart_state.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_bloc.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_event.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_filter_widget.dart';
@@ -108,7 +108,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   icon: SvgPicture.asset("assets/icons/ic_cart.svg"),
                   counter: state.cartProducts.length,
                   onTap: () {
-                    // todo add to cart
+                   context.read<MainNavBloc>().add(MainNavEvent.navigateToPage(MainNavItem.cartScreen()));
                   },
                 );
               }

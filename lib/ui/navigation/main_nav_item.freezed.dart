@@ -34,6 +34,10 @@ class _$MainNavItemTearOff {
       product,
     );
   }
+
+  CartNavItem cartScreen() {
+    return CartNavItem();
+  }
 }
 
 /// @nodoc
@@ -47,6 +51,7 @@ mixin _$MainNavItem {
     required TResult Function() catalogScreen,
     required TResult Function() profileScreen,
     required TResult Function(Product product) productScreen,
+    required TResult Function() cartScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$MainNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$MainNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +79,7 @@ mixin _$MainNavItem {
     required TResult Function(CatalogNavItem value) catalogScreen,
     required TResult Function(ProfileNavItem value) profileScreen,
     required TResult Function(ProductNavItem value) productScreen,
+    required TResult Function(CartNavItem value) cartScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +88,7 @@ mixin _$MainNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +97,7 @@ mixin _$MainNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -151,6 +161,7 @@ class _$MainItem implements MainItem {
     required TResult Function() catalogScreen,
     required TResult Function() profileScreen,
     required TResult Function(Product product) productScreen,
+    required TResult Function() cartScreen,
   }) {
     return mainScreen();
   }
@@ -162,6 +173,7 @@ class _$MainItem implements MainItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
   }) {
     return mainScreen?.call();
   }
@@ -173,6 +185,7 @@ class _$MainItem implements MainItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
     required TResult orElse(),
   }) {
     if (mainScreen != null) {
@@ -188,6 +201,7 @@ class _$MainItem implements MainItem {
     required TResult Function(CatalogNavItem value) catalogScreen,
     required TResult Function(ProfileNavItem value) profileScreen,
     required TResult Function(ProductNavItem value) productScreen,
+    required TResult Function(CartNavItem value) cartScreen,
   }) {
     return mainScreen(this);
   }
@@ -199,6 +213,7 @@ class _$MainItem implements MainItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
   }) {
     return mainScreen?.call(this);
   }
@@ -210,6 +225,7 @@ class _$MainItem implements MainItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
     required TResult orElse(),
   }) {
     if (mainScreen != null) {
@@ -267,6 +283,7 @@ class _$CatalogNavItem implements CatalogNavItem {
     required TResult Function() catalogScreen,
     required TResult Function() profileScreen,
     required TResult Function(Product product) productScreen,
+    required TResult Function() cartScreen,
   }) {
     return catalogScreen();
   }
@@ -278,6 +295,7 @@ class _$CatalogNavItem implements CatalogNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
   }) {
     return catalogScreen?.call();
   }
@@ -289,6 +307,7 @@ class _$CatalogNavItem implements CatalogNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
     required TResult orElse(),
   }) {
     if (catalogScreen != null) {
@@ -304,6 +323,7 @@ class _$CatalogNavItem implements CatalogNavItem {
     required TResult Function(CatalogNavItem value) catalogScreen,
     required TResult Function(ProfileNavItem value) profileScreen,
     required TResult Function(ProductNavItem value) productScreen,
+    required TResult Function(CartNavItem value) cartScreen,
   }) {
     return catalogScreen(this);
   }
@@ -315,6 +335,7 @@ class _$CatalogNavItem implements CatalogNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
   }) {
     return catalogScreen?.call(this);
   }
@@ -326,6 +347,7 @@ class _$CatalogNavItem implements CatalogNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
     required TResult orElse(),
   }) {
     if (catalogScreen != null) {
@@ -383,6 +405,7 @@ class _$ProfileNavItem implements ProfileNavItem {
     required TResult Function() catalogScreen,
     required TResult Function() profileScreen,
     required TResult Function(Product product) productScreen,
+    required TResult Function() cartScreen,
   }) {
     return profileScreen();
   }
@@ -394,6 +417,7 @@ class _$ProfileNavItem implements ProfileNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
   }) {
     return profileScreen?.call();
   }
@@ -405,6 +429,7 @@ class _$ProfileNavItem implements ProfileNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
     required TResult orElse(),
   }) {
     if (profileScreen != null) {
@@ -420,6 +445,7 @@ class _$ProfileNavItem implements ProfileNavItem {
     required TResult Function(CatalogNavItem value) catalogScreen,
     required TResult Function(ProfileNavItem value) profileScreen,
     required TResult Function(ProductNavItem value) productScreen,
+    required TResult Function(CartNavItem value) cartScreen,
   }) {
     return profileScreen(this);
   }
@@ -431,6 +457,7 @@ class _$ProfileNavItem implements ProfileNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
   }) {
     return profileScreen?.call(this);
   }
@@ -442,6 +469,7 @@ class _$ProfileNavItem implements ProfileNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
     required TResult orElse(),
   }) {
     if (profileScreen != null) {
@@ -532,6 +560,7 @@ class _$ProductNavItem implements ProductNavItem {
     required TResult Function() catalogScreen,
     required TResult Function() profileScreen,
     required TResult Function(Product product) productScreen,
+    required TResult Function() cartScreen,
   }) {
     return productScreen(product);
   }
@@ -543,6 +572,7 @@ class _$ProductNavItem implements ProductNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
   }) {
     return productScreen?.call(product);
   }
@@ -554,6 +584,7 @@ class _$ProductNavItem implements ProductNavItem {
     TResult Function()? catalogScreen,
     TResult Function()? profileScreen,
     TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
     required TResult orElse(),
   }) {
     if (productScreen != null) {
@@ -569,6 +600,7 @@ class _$ProductNavItem implements ProductNavItem {
     required TResult Function(CatalogNavItem value) catalogScreen,
     required TResult Function(ProfileNavItem value) profileScreen,
     required TResult Function(ProductNavItem value) productScreen,
+    required TResult Function(CartNavItem value) cartScreen,
   }) {
     return productScreen(this);
   }
@@ -580,6 +612,7 @@ class _$ProductNavItem implements ProductNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
   }) {
     return productScreen?.call(this);
   }
@@ -591,6 +624,7 @@ class _$ProductNavItem implements ProductNavItem {
     TResult Function(CatalogNavItem value)? catalogScreen,
     TResult Function(ProfileNavItem value)? profileScreen,
     TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
     required TResult orElse(),
   }) {
     if (productScreen != null) {
@@ -607,4 +641,126 @@ abstract class ProductNavItem implements MainNavItem {
   @JsonKey(ignore: true)
   $ProductNavItemCopyWith<ProductNavItem> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CartNavItemCopyWith<$Res> {
+  factory $CartNavItemCopyWith(
+          CartNavItem value, $Res Function(CartNavItem) then) =
+      _$CartNavItemCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CartNavItemCopyWithImpl<$Res> extends _$MainNavItemCopyWithImpl<$Res>
+    implements $CartNavItemCopyWith<$Res> {
+  _$CartNavItemCopyWithImpl(
+      CartNavItem _value, $Res Function(CartNavItem) _then)
+      : super(_value, (v) => _then(v as CartNavItem));
+
+  @override
+  CartNavItem get _value => super._value as CartNavItem;
+}
+
+/// @nodoc
+
+class _$CartNavItem implements CartNavItem {
+  _$CartNavItem();
+
+  @override
+  String toString() {
+    return 'MainNavItem.cartScreen()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is CartNavItem);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() mainScreen,
+    required TResult Function() catalogScreen,
+    required TResult Function() profileScreen,
+    required TResult Function(Product product) productScreen,
+    required TResult Function() cartScreen,
+  }) {
+    return cartScreen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? mainScreen,
+    TResult Function()? catalogScreen,
+    TResult Function()? profileScreen,
+    TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
+  }) {
+    return cartScreen?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? mainScreen,
+    TResult Function()? catalogScreen,
+    TResult Function()? profileScreen,
+    TResult Function(Product product)? productScreen,
+    TResult Function()? cartScreen,
+    required TResult orElse(),
+  }) {
+    if (cartScreen != null) {
+      return cartScreen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MainItem value) mainScreen,
+    required TResult Function(CatalogNavItem value) catalogScreen,
+    required TResult Function(ProfileNavItem value) profileScreen,
+    required TResult Function(ProductNavItem value) productScreen,
+    required TResult Function(CartNavItem value) cartScreen,
+  }) {
+    return cartScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MainItem value)? mainScreen,
+    TResult Function(CatalogNavItem value)? catalogScreen,
+    TResult Function(ProfileNavItem value)? profileScreen,
+    TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
+  }) {
+    return cartScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MainItem value)? mainScreen,
+    TResult Function(CatalogNavItem value)? catalogScreen,
+    TResult Function(ProfileNavItem value)? profileScreen,
+    TResult Function(ProductNavItem value)? productScreen,
+    TResult Function(CartNavItem value)? cartScreen,
+    required TResult orElse(),
+  }) {
+    if (cartScreen != null) {
+      return cartScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CartNavItem implements MainNavItem {
+  factory CartNavItem() = _$CartNavItem;
 }

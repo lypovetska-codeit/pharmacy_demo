@@ -12,6 +12,8 @@ class MainNavItem with _$MainNavItem {
   factory MainNavItem.profileScreen() = ProfileNavItem;
 
   factory MainNavItem.productScreen(Product product) = ProductNavItem;
+
+  factory MainNavItem.cartScreen() = CartNavItem;
 }
 
 extension MainNavItemExtension on MainNavItem {
@@ -20,5 +22,6 @@ extension MainNavItemExtension on MainNavItem {
         catalogScreen: (_) => 1,
         profileScreen: (_) => 2,
         productScreen: (_) => 0,
+        cartScreen: (_) => 0,
       );
 }

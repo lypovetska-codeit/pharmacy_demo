@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmacy/domain/repo/cart_repo.dart';
-import 'package:pharmacy/ui/cart/cart_event.dart';
-import 'package:pharmacy/ui/cart/cart_state.dart';
+import 'package:pharmacy/ui/page/cart/cart_event.dart';
+import 'package:pharmacy/ui/page/cart/cart_state.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {

@@ -15,7 +15,7 @@ class ScreenDefaultWrapper extends StatelessWidget {
           topLeft: Radius.circular(20),
         ),
         child: Container(
-          color: Colors.white,
+          color: const Color(0xffF7FAFF),
           child: child,
         ),
       ),
