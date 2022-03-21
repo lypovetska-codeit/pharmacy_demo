@@ -111,7 +111,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                    context.read<MainNavBloc>().add(MainNavEvent.navigateToPage(MainNavItem.cartScreen()));
                   },
                 );
-              }
+              },
             ),
             const SizedBox(width: 16),
           ],

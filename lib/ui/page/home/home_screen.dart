@@ -96,15 +96,17 @@ class HomeScreen extends StatelessWidget {
       actions: [
         Row(
           children: [
-            BlocBuilder<CartBloc, CartState>(builder: (context, state) {
-              return BadgedButton(
-                icon: SvgPicture.asset("assets/icons/ic_cart.svg"),
-                counter: state.cartProducts.length,
-                onTap: () {
-                  context.read<MainNavBloc>().add(MainNavEvent.navigateToPage(MainNavItem.cartScreen()));
-                },
-              );
-            }),
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, state) {
+                return BadgedButton(
+                  icon: SvgPicture.asset("assets/icons/ic_cart.svg"),
+                  counter: state.cartProducts.length,
+                  onTap: () {
+                    context.read<MainNavBloc>().add(MainNavEvent.navigateToPage(MainNavItem.cartScreen()));
+                  },
+                );
+              },
+            ),
             const SizedBox(width: 16),
           ],
         )
