@@ -18,22 +18,25 @@ class BadgedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 40,
-      height: 40,
+      width: 44,
+      height: 44,
       child: Stack(
         children: [
-          InkResponse(
-            onTap: () => onTap(),
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.colorAction,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: const [BoxShadow(blurRadius: 16, offset: Offset(0, 4), color: Color(0xff793600))],
-                border: Border.all(color: AppColors.grayscaleWhiteOpaqueColor),
-              ),
-              child: Center(
-                child: Container(
-                  child: icon,
+          Padding(
+            padding: const EdgeInsets.all(4),
+            child: InkResponse(
+              onTap: () => onTap(),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.colorAction,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: const [BoxShadow(blurRadius: 16, offset: Offset(0, 4), color: Color(0xff793600))],
+                  border: Border.all(color: AppColors.grayscaleWhiteOpaqueColor),
+                ),
+                child: Center(
+                  child: Container(
+                    child: icon,
+                  ),
                 ),
               ),
             ),
@@ -61,7 +64,7 @@ class BadgedButton extends StatelessWidget {
                   width: 14,
                   height: 14,
                   decoration: BoxDecoration(
-                    color: AppColors.grayscaleWhiteColor,
+                    color: AppColors.colorAccentLight,
                     borderRadius: BorderRadius.circular(100.0),
                   ),
                   child: Text(
