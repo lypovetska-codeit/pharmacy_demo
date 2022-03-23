@@ -16,6 +16,8 @@ import 'package:pharmacy/ui/page/catalog/catalog_sort_widget.dart';
 import 'package:pharmacy/ui/page/catalog/catalog_state.dart';
 import 'package:pharmacy/ui/page/catalog/paginated_product_list.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/style/app_style.dart';
+import 'package:pharmacy/ui/style/text_helper.dart';
 import 'package:pharmacy/ui/widget/badged_button.dart';
 import 'package:pharmacy/ui/widget/bottom_sheet_wrapper.dart';
 import 'package:pharmacy/ui/widget/iconed_button_small.dart';
@@ -55,13 +57,13 @@ class _CatalogScreenState extends State<CatalogScreen> {
             BlocBuilder<CatalogBloc, CatalogState>(
               builder: (context, state) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  padding: const EdgeInsets.only(left: 16, right: 16, bottom: 4),
                   child: Row(
                     children: [
                       Expanded(
                         child: IconedButtonSmall(
                           onPressed: () => _openFilter(context, state.productCategories),
-                          title: "FILTER",
+                          title: context.l10n.filter,
                           icon: SvgPicture.asset("assets/icons/ic_filter.svg"),
                         ),
                       ),
@@ -69,7 +71,8 @@ class _CatalogScreenState extends State<CatalogScreen> {
                       Expanded(
                         child: IconedButtonSmall(
                           onPressed: () => _openSort(context),
-                          title: "BY RATING",
+                          title: context.l10n
+                              .bySort(TextHelper.getProductSortOrderTitle(context, state.sortOrder).toUpperCase()),
                           icon: SvgPicture.asset("assets/icons/ic_sort.svg"),
                         ),
                       ),
@@ -97,7 +100,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
       backgroundColor: AppColors.colorPrimary,
       title: Text(
         context.l10n.catalogPageTitle,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.textPrimaryColor),
+        style: AppStyle.textStyleHeader,
       ),
       actions: [
         Row(
@@ -108,7 +111,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   icon: SvgPicture.asset("assets/icons/ic_cart.svg"),
                   counter: state.cartProducts.length,
                   onTap: () {
-                   context.read<MainNavBloc>().add(MainNavEvent.navigateToPage(MainNavItem.cartScreen()));
+                    context.read<MainNavBloc>().add(MainNavEvent.navigateToPage(MainNavItem.cartScreen()));
                   },
                 );
               },

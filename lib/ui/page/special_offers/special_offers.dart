@@ -39,9 +39,9 @@ class SpecialOffers extends StatelessWidget {
                       ),
                       items: [..._buildItems(state)],
                     )
-                  : const SizedBox(
+                  :  SizedBox(
                       height: 150,
-                      child: Center(child: Text("There are no offers yet")),
+                      child: Center(child: Text(context.l10n.emptyOffer)),
                     ),
               loading: (_) {
                 return const SizedBox(width: 275, height: 150, child: Center(child: CircularProgressIndicator()));

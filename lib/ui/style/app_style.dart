@@ -199,4 +199,18 @@ class AppStyle {
     fontSize: 14,
     color: AppColors.grayscaleWhiteColor,
   );
+  static TextStyle textStylePrimary = const TextStyle(
+    color: AppColors.textPrimaryColor,
+    fontSize: 14,
+  );
+  static TextStyle textStylePrimaryBold = const TextStyle(
+    color: AppColors.textPrimaryColor,
+    fontWeight: FontWeight.w800,
+    fontSize: 14,
+  );
+  static TextStyle textStyleHeader = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textPrimaryColor,
+  );
 }

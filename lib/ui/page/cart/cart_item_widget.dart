@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/cart_product.dart';
 import 'package:pharmacy/ui/page/cart/cart_bloc.dart';
 import 'package:pharmacy/ui/page/cart/cart_event.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/style/app_style.dart';
 import 'package:pharmacy/ui/widget/count_button.dart';
 
 class CartItemWidget extends StatelessWidget {
@@ -51,15 +53,15 @@ class CartItemWidget extends StatelessWidget {
                   children: [
                     Text(item.product.name),
                     if (item.product.requireReceipt)
-                      const Text(
-                        "Prescription",
-                        style: TextStyle(color: AppColors.destructiveColor, fontSize: 10),
+                      Text(
+                        context.l10n.prescription,
+                        style: const TextStyle(color: AppColors.destructiveColor, fontSize: 10),
                       ),
                     Row(
                       children: [
-                        const Text(
-                          "Price",
-                          style: TextStyle(
+                        Text(
+                          context.l10n.price,
+                          style: const TextStyle(
                             color: AppColors.textSecondaryColor,
                             fontSize: 12,
                           ),
@@ -97,17 +99,13 @@ class CartItemWidget extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const Text(
-                      "TOTAL",
-                      style: TextStyle(fontSize: 10, color: AppColors.textSecondaryColor),
+                    Text(
+                      context.l10n.total,
+                      style: const TextStyle(fontSize: 10, color: AppColors.textSecondaryColor),
                     ),
                     Text(
                       (item.count * item.product.price).toStringAsFixed(2),
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: AppColors.textPrimaryColor,
-                        fontWeight: FontWeight.w800,
-                      ),
+                      style: AppStyle.textStylePrimaryBold,
                     )
                   ],
                 )

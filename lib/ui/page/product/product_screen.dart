@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/cart_product.dart';
 import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/ui/page/cart/cart_bloc.dart';
@@ -149,20 +150,14 @@ class _ProductScreenState extends State<ProductScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "About",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: AppColors.textPrimaryColor,
-                          ),
+                        Text(
+                          context.l10n.about,
+                          style: AppStyle.textStyleHeader,
                         ),
                         const SizedBox(height: 16),
                         Text(
                           widget.product.description,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: AppColors.textPrimaryColor,
-                          ),
+                          style: AppStyle.textStylePrimary,
                         ),
                         const SizedBox(height: 100),
                       ],
@@ -207,7 +202,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   Navigator.pop(context);
                 },
                 child: Text(
-                  "Add to Cart",
+                  context.l10n.addToCart,
                   style: AppStyle.textStyleOutlineButtonAccentStyleSmall,
                 ),
               ),

@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/style/app_style.dart';
 import 'package:pharmacy/ui/widget/search/search_bloc.dart';
 import 'package:pharmacy/ui/widget/search/search_event.dart';
 import 'package:pharmacy/ui/widget/search/search_state.dart';
@@ -74,9 +76,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   color: AppColors.textSecondaryColor,
                                   fontStyle: FontStyle.normal,
                                 ),
-                            decoration: const InputDecoration(
-                              hintText: "Catalog search",
-                              hintStyle: TextStyle(
+                            decoration: InputDecoration(
+                              hintText: context.l10n.catalogSearch,
+                              hintStyle: const TextStyle(
                                 fontSize: 14,
                                 color: AppColors.textSecondaryColor,
                                 fontStyle: FontStyle.normal,
@@ -108,13 +110,13 @@ class _SearchWidgetState extends State<SearchWidget> {
                           noItemsFoundBuilder: (context) {
                             return Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children:  [
                                 Padding(
-                                  padding: EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(16),
                                   child: Text(
                                     'По Вашему запросу ничего не найдено. \nУточните свой запрос',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(color: AppColors.colorPrimary, fontSize: 14),
+                                    style: AppStyle.textStylePrimary,
                                   ),
                                 ),
                               ],
@@ -141,6 +143,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           ),
                           onSuggestionSelected: (Object? suggestion) {
                             if (suggestion != null) {
+                              _controller.text = "";
                               widget.onSelect(suggestion as Product);
                             }
                           },
@@ -212,15 +215,11 @@ class _SuggestedProductLisTile extends StatelessWidget {
         children: [
           Text(
             product.name,
-            style: const TextStyle(
-              overflow: TextOverflow.ellipsis,
-              fontSize: 14,
-              color: AppColors.textPrimaryColor,
-            ),
+            style: AppStyle.textStylePrimary.copyWith( overflow: TextOverflow.ellipsis,)
           ),
-          const Text(
-            "Available",
-            style: TextStyle(
+          Text(
+            context.l10n.available,
+            style: const TextStyle(
               color: AppColors.colorPrimary,
               fontSize: 12,
             ),
@@ -233,7 +232,7 @@ class _SuggestedProductLisTile extends StatelessWidget {
         children: [
           Text(
             "${product.price - product.discount} ₴",
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.black),
+            style: AppStyle.textStylePrimaryBold,
           ),
           Visibility(
             visible: product.discount > 0,

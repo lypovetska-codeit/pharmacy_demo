@@ -24,7 +24,7 @@ class CartScreen extends StatelessWidget {
         return BlocListener<CartBloc, CartState>(
           listener: (context, state) => state.mapOrNull(
             error: (state) => ScaffoldMessenger.of(context).showMaterialBanner(
-              MaterialBanner(content: Text("Error. ${state.error.toString()}"), actions: const []),
+              MaterialBanner(content: Text(state.error.toString()), actions: const []),
             ),
           ),
           child: Scaffold(
@@ -53,7 +53,7 @@ class CartScreen extends StatelessWidget {
       backgroundColor: AppColors.colorPrimary,
       title: Text(
         context.l10n.basketPage,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.textPrimaryColor),
+        style: AppStyle.textStyleHeader,
       ),
       leading: IconButton(
         icon: SvgPicture.asset(
@@ -75,13 +75,10 @@ class CartScreen extends StatelessWidget {
                     onPressed: () {
                       context.read<CartBloc>().add(CartEvent.cleanCart());
                     },
-                    child: const Text(
-                      "Clear",
-                      style: TextStyle(
-                        color: AppColors.textPrimaryColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w800,
-                      ),
+                    child: Text(
+                      context.l10n.clear,
+                      style: AppStyle.textStylePrimaryBold,
+
                     ),
                   ),
                 );
@@ -97,10 +94,20 @@ class CartScreen extends StatelessWidget {
   Widget _buildItems(BuildContext context, Set<CartProduct> cartProducts) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: ListView.builder(
-        itemCount: cartProducts.length,
-        itemBuilder: (context, index) => CartItemWidget(item: cartProducts.toList()[index]),
-      ),
+      child: cartProducts.isNotEmpty
+          ? ListView.builder(
+              itemCount: cartProducts.length,
+              itemBuilder: (context, index) => CartItemWidget(item: cartProducts.toList()[index]),
+            )
+          : Center(
+              child: Opacity(
+                opacity: 0.5,
+                child: SvgPicture.asset(
+                  "assets/images/drug_placeholder.svg",
+                  width: 200,
+                ),
+              ),
+            ),
     );
   }
 
@@ -115,9 +122,9 @@ class CartScreen extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Text(
-                    "Goods worth",
-                    style: TextStyle(
+                  Text(
+                    context.l10n.total_price,
+                    style: const TextStyle(
                       color: AppColors.textSecondaryColor,
                       fontSize: 14,
                     ),
@@ -145,7 +152,7 @@ class CartScreen extends StatelessWidget {
                             }
                           : null,
                       child: Text(
-                        "Checkout",
+                        context.l10n.checkout,
                         style: AppStyle.textStyleOutlineButtonAccentStyleSmall,
                       ),
                     ),

@@ -6,6 +6,7 @@ import 'package:pharmacy/domain/model/product.dart';
 import 'package:pharmacy/ui/page/cart/cart_bloc.dart';
 import 'package:pharmacy/ui/page/cart/cart_event.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/style/app_style.dart';
 import 'package:pharmacy/ui/widget/product_labels_widget.dart';
 
 class ProductWidget extends StatelessWidget {
@@ -67,11 +68,7 @@ class ProductWidget extends StatelessWidget {
             const Spacer(),
             Text(
               item.name,
-              style: const TextStyle(
-                overflow: TextOverflow.ellipsis,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+              style: AppStyle.textStylePrimary.copyWith(overflow: TextOverflow.ellipsis),
             ),
             Text(
               item.origin,
@@ -92,11 +89,7 @@ class ProductWidget extends StatelessWidget {
                   children: [
                     Text(
                       "\$ ${item.price - item.discount}",
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w800,
-                        color: AppColors.textPrimaryColor,
-                      ),
+                      style: AppStyle.textStylePrimaryBold,
                     ),
                     Visibility(
                       visible: item.discount > 0,

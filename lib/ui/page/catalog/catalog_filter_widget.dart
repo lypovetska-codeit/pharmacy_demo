@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product_category.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/style/app_style.dart';
@@ -34,9 +35,9 @@ class _CatalogFilterWidgetState extends State<CatalogFilterWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "Filter",
-                style: TextStyle(fontSize: 18, color: AppColors.textPrimaryColor, fontWeight: FontWeight.w600),
+               Text(
+                context.l10n.filter_lower,
+                style: AppStyle.textStyleHeader,
               ),
               DottedTextButton(
                 onPressed: () {
@@ -45,9 +46,10 @@ class _CatalogFilterWidgetState extends State<CatalogFilterWidget> {
                   });
                 },
                 color: AppColors.textPrimaryColor,
-                child: const Text(
-                  "Clear",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: AppColors.textPrimaryColor),
+                child: Text(
+                  context.l10n.clear,
+                  style: AppStyle.textStylePrimaryBold,
+
                 ),
               ),
             ],
@@ -59,11 +61,11 @@ class _CatalogFilterWidgetState extends State<CatalogFilterWidget> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 12),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "Category",
-                style: TextStyle(fontSize: 18, color: AppColors.textPrimaryColor, fontWeight: FontWeight.w600),
+                context.l10n.category,
+                style: AppStyle.textStyleHeader,
               ),
             ),
             ListView.builder(
@@ -102,7 +104,7 @@ class _CatalogFilterWidgetState extends State<CatalogFilterWidget> {
                         Navigator.pop(context, selectedItems);
                       },
                       child: Text(
-                        "Apply",
+                        context.l10n.apply,
                         style: AppStyle.textStyleOutlineButtonAccentStyleSmall,
                       ),
                     ),

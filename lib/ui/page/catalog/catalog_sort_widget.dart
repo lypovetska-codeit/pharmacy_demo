@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/domain/model/product_sort_order.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
 import 'package:pharmacy/ui/style/app_style.dart';
@@ -28,11 +29,11 @@ class _CatalogSortWidgetState extends State<CatalogSortWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            "Sort by",
-            style: TextStyle(fontSize: 18, color: AppColors.textPrimaryColor, fontWeight: FontWeight.w600),
+            context.l10n.sortBy,
+            style: AppStyle.textStyleHeader,
           ),
         ),
         const Divider(color: AppColors.colorAccentLight),
@@ -76,7 +77,7 @@ class _CatalogSortWidgetState extends State<CatalogSortWidget> {
                         Navigator.pop(context, selectedItem);
                       },
                       child: Text(
-                        "Apply",
+                        context.l10n.apply,
                         style: AppStyle.textStyleOutlineButtonAccentStyleSmall,
                       ),
                     ),

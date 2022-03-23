@@ -14,6 +14,7 @@ import 'package:pharmacy/ui/page/home/home_state.dart';
 import 'package:pharmacy/ui/page/special_offers/special_offers.dart';
 import 'package:pharmacy/ui/page/tags/tags_widget.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/style/app_style.dart';
 import 'package:pharmacy/ui/widget/badged_button.dart';
 import 'package:pharmacy/ui/widget/empty_result_retry_widget.dart';
 import 'package:pharmacy/ui/widget/main_bottom_navigation_widget.dart';
@@ -91,7 +92,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: AppColors.colorPrimary,
       title: Text(
         context.l10n.homePageTitle,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: AppColors.textPrimaryColor),
+        style: AppStyle.textStyleHeader,
       ),
       actions: [
         Row(

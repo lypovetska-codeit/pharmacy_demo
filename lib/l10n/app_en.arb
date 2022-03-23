@@ -58,5 +58,139 @@
   "basketPage": "Basket",
   "@basketPage": {
     "description": "Basket page title"
+  },
+  "emptyOffer": "There are no offers yet",
+  "@emptyOffer": {
+    "description": "empty message"
+  },
+  "catalogSearch": "Catalog search",
+  "@catalogSearch": {
+    "description": "Catalog search"
+  },
+  "personalInfo": "Personal info",
+  "@personalInfo": {
+    "description": "Personal info title"
+  },
+  "myList": "My List",
+  "@myList": {
+    "description": "My List title"
+  },
+  "logout": "Log out",
+  "@logout": {
+    "description": "Log out title"
+  },
+  "filter": "FILTER",
+  "@filter": {
+    "description": "Filter title"
+  },
+  "filter_lower": "filter",
+  "@filter": {
+    "description": "Filter title"
+  },
+  "bySort": "BY {sort}",
+  "@bySort": {
+    "description": "Sorting option by rating",
+    "placeholders": {
+          "sort": {}
+    }
+  },
+  "about": "About",
+  "@about": {
+    "description": "About title"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language title"
+  },
+  "prescription": "Prescription",
+  "@prescription": {
+    "description": "Prescription title"
+  },
+  "price": "Price",
+  "@price": {
+    "description": "Price title"
+  },
+  "total": "TOTAL",
+  "@total": {
+    "description": "total title"
+  },
+  "clear": "Clear",
+  "@clear": {
+    "description": "Clear title"
+  },
+  "category": "Category",
+  "@category": {
+    "description": "Category title"
+  },
+  "total_price": "Goods worth",
+  "@total_price": {
+    "description": "Total price title"
+  },
+  "checkout": "Checkout",
+  "@checkout": {
+    "description": "Checkout button title"
+  },
+  "apply": "Apply",
+  "@apply": {
+    "description": "Apply button title"
+  },
+  "sortBy": "Sort by",
+  "@sortBy": {
+    "description": "Sort by button title"
+  },
+  "pills": "Pills",
+  "@pills": {
+    "description": "Pills title"
+  },
+  "medicines": "Medicines",
+  "@medicines": {
+    "description": "Medicines title"
+  },
+  "equipment": "Equipment",
+  "@equipment": {
+    "description": "equipment title"
+  },
+  "rating": "Rating",
+  "@rating": {
+    "description": "Rating title"
+  },
+  "recent": "Recent",
+  "@recent": {
+    "description": "Recent title"
+  },
+  "higherPrice": "Higher Price",
+  "@higherPrice": {
+    "description": "Higher Price title"
+  },
+  "lowerPrice": "Lower Price",
+  "@lowerPrice": {
+    "description": "Lower Price title"
+  },
+  "available": "Available",
+  "@available": {
+    "description": "available title"
+  },
+  "addToCart": "Add to Cart",
+  "@addToCart": {
+    "description": "Add to Cart button title"
+  },
+  "logoutConfirmation": "Are you really want to log out?",
+  "@logoutConfirmation": {
+    "description": "logout confirmation title"
+  },
+  "logoutRationale": "You will have to sign in again to see your bonuses, lists and purchase history",
+  "@logoutRationale": {
+    "description": "logout rationale title"
+  },
+  "dontLogout": "Do not leave",
+  "@dontLogout": {
+    "description": "Do not logout title"
+  },
+  "welcome": "Welcome, {username}!",
+  "@welcome": {
+    "description": "Welcome title",
+     "placeholders": {
+        "username": {}
+     }
   }
 }

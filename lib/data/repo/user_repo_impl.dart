@@ -49,8 +49,8 @@ class UserRepoImpl extends UserRepo {
   Future<void> authorize() async {
     final user = User.authorized(
       userId: UserId(123),
-      firstName: "firstName",
-      lastName: "lastName",
+      firstName: "Alice",
+      lastName: "Wonderland",
       phoneNumber: "+3806868484333",
     );
     await Future<User>.delayed(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmacy/build_context_extensions.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/style/app_style.dart';
 import 'package:pharmacy/ui/user/user_bloc.dart';
 import 'package:pharmacy/ui/user/user_event.dart';
 import 'package:pharmacy/ui/user/user_state.dart';
@@ -29,7 +30,7 @@ class UserCardPreview extends StatelessWidget {
                       const SizedBox(height: 12),
                       Text(
                         loadedState.user.map(
-                          authorized: (user) => "Welcome, ${user.firstName}!",
+                          authorized: (user) => context.l10n.welcome(user.firstName),
                           guest: (_) => context.l10n.joinUsRationale,
                         ),
                         style: const TextStyle(
@@ -48,7 +49,7 @@ class UserCardPreview extends StatelessWidget {
                           },
                           child: Text(
                             context.l10n.joinUs,
-                            style: const TextStyle(fontSize: 14, color: AppColors.textPrimaryColor),
+                            style: AppStyle.textStylePrimary,
                           ),
                         ),
                       )
