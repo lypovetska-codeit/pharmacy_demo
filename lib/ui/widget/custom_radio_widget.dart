@@ -17,23 +17,25 @@ class CustomRadioWidget<R> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: const [BoxShadow(color: Color(0x141d2482), blurRadius: 8)],
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: RadioListTile<R>(
-        groupValue: selectedValue,
-        value: value,
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            color: AppColors.textPrimaryColor,
+    return Material(
+      color: Colors.white,
+      shadowColor: AppColors.colorShadow,
+      elevation: 8,
+      clipBehavior: Clip.hardEdge,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: InkWell(
+        child: RadioListTile<R>(
+          groupValue: selectedValue,
+          value: value,
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              color: AppColors.textPrimaryColor,
+            ),
           ),
+          onChanged: (value) => onTap(),
         ),
-        onChanged: (value) => onTap(),
       ),
     );
   }

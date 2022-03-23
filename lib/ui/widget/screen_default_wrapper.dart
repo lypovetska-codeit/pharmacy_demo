@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy/ui/style/app_colors.dart';
 
 class ScreenDefaultWrapper extends StatelessWidget {
   final Widget child;
@@ -15,7 +16,7 @@ class ScreenDefaultWrapper extends StatelessWidget {
           topLeft: Radius.circular(20),
         ),
         child: Container(
-          color: const Color(0xffF7FAFF),
+          color: AppColors.backgroundColor,
           child: child,
         ),
       ),

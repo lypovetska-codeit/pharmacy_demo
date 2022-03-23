@@ -15,6 +15,8 @@ class AppColors {
   static const grayscaleWhiteOpaqueColor60 = Color(0x99ffffff);
   static const grayscaleDividerColor = Color(0xffF8F8F8);
   static const grayscaleDividerColorDisabled = Color(0x80e0e0e0);
+  static const colorShadow = Color(0x141d2482);
+  static const backgroundColor = Color(0xffF7FAFF);
 
   static const textPrimaryColor = Color(0xff373843);
   static const iconPrimaryColor = Color(0x4d373843);

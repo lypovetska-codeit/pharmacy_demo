@@ -31,7 +31,7 @@ class _ProductScreenState extends State<ProductScreen> {
         return Scaffold(
           backgroundColor: const Color(0xffF7FAFF),
           body: Container(
-            color: const Color(0xffF7FAFF),
+            color: AppColors.backgroundColor,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _ProductScreenState extends State<ProductScreen> {
                               Expanded(
                                 child: Container(
                                   height: backgroundSize,
-                                  color: const Color(0xffF7FAFF),
+                                  color: AppColors.backgroundColor,
                                 ),
                               ),
                               Expanded(
@@ -58,7 +58,7 @@ class _ProductScreenState extends State<ProductScreen> {
                           ),
                           Container(
                             height: 100,
-                            color: const Color(0xffF7FAFF),
+                            color: AppColors.backgroundColor,
                           ),
                         ],
                       ),
@@ -69,7 +69,7 @@ class _ProductScreenState extends State<ProductScreen> {
                             height: 245,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              boxShadow: const [BoxShadow(color: Color(0x141d2482), blurRadius: 8)],
+                              boxShadow: const [BoxShadow(color: AppColors.colorShadow, blurRadius: 8)],
                               borderRadius: BorderRadius.circular(48),
                             ),
                             child: Padding(

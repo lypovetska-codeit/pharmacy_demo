@@ -12,6 +12,9 @@ import 'package:pharmacy/ui/navigation/main_nav_item.dart';
 import 'package:pharmacy/ui/page/cart/cart_bloc.dart';
 import 'package:pharmacy/ui/page/cart/cart_state.dart';
 import 'package:pharmacy/ui/style/app_colors.dart';
+import 'package:pharmacy/ui/user/user_bloc.dart';
+import 'package:pharmacy/ui/user/user_event.dart';
+import 'package:pharmacy/ui/user/user_state.dart';
 import 'package:pharmacy/ui/widget/badged_button.dart';
 import 'package:pharmacy/ui/widget/custom_radio_widget.dart';
 import 'package:pharmacy/ui/widget/main_bottom_navigation_widget.dart';
@@ -23,19 +26,15 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LocaleBloc, LocaleState>(
-      builder: (context, state) {
-        return Scaffold(
-          appBar: _buildAppBar(context),
-          backgroundColor: AppColors.colorPrimary,
-          bottomNavigationBar: MainBottomNavigationWidget(),
-          body: _buildBody(context, state),
-        );
-      },
+    return Scaffold(
+      appBar: _buildAppBar(context),
+      backgroundColor: AppColors.colorPrimary,
+      bottomNavigationBar: MainBottomNavigationWidget(),
+      body: _buildBody(context),
     );
   }
 
-  Widget _buildBody(BuildContext context, LocaleState state) {
+  Widget _buildBody(BuildContext context) {
     return ScreenDefaultWrapper(
       child: Column(
         children: [
@@ -51,48 +50,10 @@ class ProfileScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 20, color: AppColors.textPrimaryColor),
                     ),
                     const SizedBox(height: 16),
-                    ...AppLocale.values
-                        .map(
-                          (locale) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: CustomRadioWidget(
-                              value: locale,
-                              selectedValue: state.locale,
-                              onTap: () => context.read<LocaleBloc>().add(LocaleEvent.changeLocale(locale)),
-                              title: locale.asTitle(context),
-                            ),
-                          ),
-                        )
-                        .toList(),
+                    _buildLocalePrefs(context),
                     const SizedBox(height: 24),
                     const Divider(color: AppColors.colorAccentLight),
-                    const SizedBox(height: 16),
-                    SettingRowWidget(
-                      leading: SvgPicture.asset("assets/icons/ic_user_card.svg"),
-                      title: "Personal info",
-                      trailing: IconButton(
-                        icon: SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
-                        onPressed: () {
-                          //todo navigate to profile
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    SettingRowWidget(
-                      leading: SvgPicture.asset("assets/icons/ic_like.svg", color: AppColors.colorAccent),
-                      title: "My List",
-                      trailing: IconButton(
-                        icon: SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
-                        onPressed: () {
-                          //todo navigate to my list
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    SettingRowWidget(
-                      leading: SvgPicture.asset("assets/icons/ic_logout.svg"),
-                      title: "Log out",
-                    ),
+                    _buildUserFields(context)
                   ],
                 ),
               ),
@@ -131,6 +92,83 @@ class ProfileScreen extends StatelessWidget {
           ],
         )
       ],
+    );
+  }
+
+  Widget _buildUserFields(BuildContext context) {
+    return BlocBuilder<UserBloc, UserState>(
+      builder: (context, userState) {
+        return userState.mapOrNull(
+              loaded: (loadedState) =>
+                  loadedState.user.mapOrNull(
+                    authorized: (_) => Column(
+                      children: [
+                        const SizedBox(height: 16),
+                        SettingRowWidget(
+                          leading: SvgPicture.asset("assets/icons/ic_user_card.svg"),
+                          title: "Personal info",
+                          trailing: IconButton(
+                            icon: SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
+                            onPressed: () {
+                              //todo navigate to profile
+                            },
+                          ),
+                          onTap: () {},
+                        ),
+                        const SizedBox(height: 12),
+                        SettingRowWidget(
+                          leading: SvgPicture.asset(
+                            "assets/icons/ic_like.svg",
+                            color: AppColors.colorAccent,
+                          ),
+                          title: "My List",
+                          trailing: IconButton(
+                            icon: SvgPicture.asset("assets/icons/ic_arrow_right.svg"),
+                            onPressed: () {
+                              //todo navigate to my list
+                            },
+                          ),
+                          onTap: () {},
+                        ),
+                        const SizedBox(height: 12),
+                        SettingRowWidget(
+                          leading: SvgPicture.asset("assets/icons/ic_logout.svg"),
+                          title: "Log out",
+                          onTap: () {
+                            context.read<UserBloc>().add(UserEvent.logout());
+                          },
+                        ),
+                      ],
+                    ),
+                  ) ??
+                  Container(),
+            ) ??
+            Container();
+      },
+    );
+  }
+
+  Widget _buildLocalePrefs(BuildContext context) {
+    return BlocBuilder<LocaleBloc, LocaleState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            ...AppLocale.values
+                .map(
+                  (locale) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: CustomRadioWidget(
+                      value: locale,
+                      selectedValue: state.locale,
+                      onTap: () => context.read<LocaleBloc>().add(LocaleEvent.changeLocale(locale)),
+                      title: locale.asTitle(context),
+                    ),
+                  ),
+                )
+                .toList()
+          ],
+        );
+      },
     );
   }
 }
