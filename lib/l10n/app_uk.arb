@@ -5,7 +5,7 @@
   "generalErrorMessage": "Помилка. Щось пішло не так",
   "homePageTitle": "Головна",
   "productPageTitle": "Продукт",
-  "SpecialOffersTitle": "Спеціальні пропозиції",
+  "specialOffersTitle": "Спеціальні пропозиції",
   "noResultsMessage": "Результатів немає",
   "reloadPageMessage": "Перезавантажити",
   "discountCardPlaceholder": "Тут буде ваша карта",
